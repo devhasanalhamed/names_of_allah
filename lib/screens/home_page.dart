@@ -1,3 +1,5 @@
+//TODO upgrades to the design
+
 import 'package:flutter/material.dart';
 import 'package:names_of_allah/providers/namesProvider.dart';
 import 'package:names_of_allah/theme/theme_manager.dart';
@@ -16,16 +18,16 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late String _nameHome;
-  late String _meaningHome ;
+  late String _meaningHome;
   var _viewCard = false;
 
   @override
   void initState() {
-    Provider.of<ThemeManager>(context,listen: false).getPrefs();
+    Provider.of<ThemeManager>(context, listen: false).getPrefs();
     super.initState();
   }
 
-  void clearName(){
+  void clearName() {
     setState(() {
       _nameHome = '';
       _meaningHome = '';
@@ -33,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void pickName(String name, String meaning){
+  void pickName(String name, String meaning) {
     setState(() {
       _nameHome = name;
       _meaningHome = meaning;
@@ -44,20 +46,33 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final sizeHeight = MediaQuery.of(context).size.height;
-    final _names = Provider.of<DataProvider>(context, listen: true).namesOfAllah;
+    final _names =
+        Provider.of<DataProvider>(context, listen: true).namesOfAllah;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
+        onPressed: () {
+          //TODO fix the dialog
           showAboutDialog(
             context: context,
             children: [
-              const Text('تم تطويره من قبل:',textAlign: TextAlign.center,textDirection: TextDirection.rtl),
-              const Text('أحمد العمودي',textAlign: TextAlign.end,),
-              const Text('Ahmed@amoudi',textAlign: TextAlign.end,),
-              const Text('حسن الحامد',textAlign: TextAlign.end,),
-              const Text('hassan@hamed',textAlign: TextAlign.end,),
-              InkWell(
-                onTap: () => Navigator.of(context).pushNamed('routeName'),
+              const Text('تم تطويره من قبل:',
+                  textAlign: TextAlign.center,
+                  textDirection: TextDirection.rtl),
+              const Text(
+                'أحمد العمودي',
+                textAlign: TextAlign.end,
+              ),
+              const Text(
+                'Ahmed@amoudi',
+                textAlign: TextAlign.end,
+              ),
+              const Text(
+                'حسن الحامد',
+                textAlign: TextAlign.end,
+              ),
+              const Text(
+                'hassan@hamed',
+                textAlign: TextAlign.end,
               ),
             ],
           );
@@ -83,8 +98,16 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             child: _viewCard
-                ? InformationCard(_nameHome, _meaningHome,clearName,)
-                :const InformationCard('إختر من قائمة الأسماء','سيتم عرض الوصف هنا',null,),
+                ? InformationCard(
+                    _nameHome,
+                    _meaningHome,
+                    clearName,
+                  )
+                : const InformationCard(
+                    'إختر من قائمة الأسماء',
+                    'سيتم عرض الوصف هنا',
+                    null,
+                  ),
           ),
           ListOfNames(_names, pickName),
         ],

@@ -1,3 +1,5 @@
+//TODO complete the data with corrections
+
 import 'package:flutter/material.dart';
 import '../models/names.dart';
 
@@ -135,7 +137,10 @@ class DataProvider with ChangeNotifier {
         meaning:
             'وهو في معنى الخالق ويزيد عليه في دلالته على كثرة خلق الله واتساعه',
         search: 'الخلاق'),
-    Names(name: 'الرؤوف', meaning: 'مريد التخفيف عن عباده', search: 'الرؤوف الرءوف'),
+    Names(
+        name: 'الرؤوف',
+        meaning: 'مريد التخفيف عن عباده',
+        search: 'الرؤوف الرءوف'),
     Names(
         name: 'الرحمن',
         meaning:

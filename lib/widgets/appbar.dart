@@ -49,7 +49,6 @@ class _MyAppBarState extends State<MyAppBar> {
             )
           : const Text('أسماء الله الحُسنى'),
       elevation: 0.0,
-      
       centerTitle: true,
       actions: _isSearching
           ? null
