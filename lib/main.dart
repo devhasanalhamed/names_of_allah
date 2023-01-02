@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:names_of_allah/providers/namesProvider.dart';
 import 'package:names_of_allah/theme/theme_constants.dart';
 import 'package:names_of_allah/theme/theme_manager.dart';
-import './screens/home_page.dart';
+import 'view/screens/home_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
