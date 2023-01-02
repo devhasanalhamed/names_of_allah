@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-const lightPrimary = Color.fromARGB(255, 100, 163, 111);
+const lightPrimary = Color.fromARGB(255, 247, 247, 247);
+const lightSecondary = Color(0xFF662BBB);
 const lightBackGround = Color.fromARGB(255, 247, 247, 247);
 
 const darkPrimary = Color.fromARGB(255, 216, 216, 216);
@@ -11,6 +12,11 @@ const darkBackground = Color.fromARGB(255, 85, 110, 83);
 ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
   primaryColor: lightPrimary,
+  colorScheme: const ColorScheme.light(
+    primary: lightPrimary,
+    secondary: lightSecondary,
+    background: lightBackGround,
+  ),
   appBarTheme: const AppBarTheme(
     color: lightPrimary,
   ),
