@@ -103,16 +103,16 @@ class _HomePageState extends State<HomePage> {
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      Color.fromARGB(201, 203, 130, 239),
-                      Color.fromARGB(201, 103, 43, 187),
+                      Color(0xFFAB8914),
+                      Color(0xFFAB8914),
                     ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15),
-                  ),
+                      // topLeft: Radius.circular(15),
+                      // topRight: Radius.circular(15),
+                      ),
                 ),
                 child: _viewCard
                     ? InformationCard(
