@@ -58,8 +58,14 @@ class _MyAppBarState extends State<MyAppBar> {
               IconButton(
                 icon:
                     Provider.of<ThemeManager>(context, listen: true).isDarkMode
-                        ? const Icon(Icons.sunny)
-                        : const Icon(Icons.nightlight_round),
+                        ? const Icon(
+                            Icons.sunny,
+                            color: Color(0xFFE7C13B),
+                          )
+                        : const Icon(
+                            Icons.nightlight_round,
+                            color: Color(0xFFE7C13B),
+                          ),
                 onPressed: () =>
                     Provider.of<ThemeManager>(context, listen: false)
                         .toggleTheme(),
@@ -73,7 +79,15 @@ class _MyAppBarState extends State<MyAppBar> {
             _isSearching = !_isSearching;
           }),
         },
-        icon: _isSearching ? const Icon(Icons.clear) : const Icon(Icons.search),
+        icon: _isSearching
+            ? const Icon(
+                Icons.clear,
+                color: Color(0xFFE7C13B),
+              )
+            : const Icon(
+                Icons.search,
+                color: Color(0xFFE7C13B),
+              ),
       ),
     );
   }
