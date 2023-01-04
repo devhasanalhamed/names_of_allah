@@ -81,54 +81,43 @@ class _HomePageState extends State<HomePage> {
       ),
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: const MyAppBar(),
-      body: Stack(
-        alignment: Alignment.center,
+      body: Column(
         children: [
-          // Image.asset(
-          //   'assets/images/background.png',
-          //   height: double.infinity,
-          //   width: double.infinity,
-          //   fit: BoxFit.cover,
+          // Container(
+          //   height: sizeHeight * 0.3,
+          //   margin: const EdgeInsets.only(
+          //     top: 20,
+          //     bottom: 0,
+          //     right: 20,
+          //     left: 20,
+          //   ),
+          //   decoration: const BoxDecoration(
+          //     gradient: LinearGradient(
+          //       colors: [
+          //         Color(0xFFAB8914),
+          //         Color(0xFFAB8914),
+          //       ],
+          //       begin: Alignment.topLeft,
+          //       end: Alignment.bottomRight,
+          //     ),
+          //     borderRadius: BorderRadius.only(
+          //         // topLeft: Radius.circular(15),
+          //         // topRight: Radius.circular(15),
+          //         ),
+          //   ),
+          //   child: _viewCard
+          //       ? InformationCard(
+          //           _nameHome,
+          //           _meaningHome,
+          //           clearName,
+          //         )
+          //       : const InformationCard(
+          //           'إختر من قائمة الأسماء',
+          //           'سيتم عرض الوصف هنا',
+          //           null,
+          //         ),
           // ),
-          Column(
-            children: [
-              Container(
-                height: sizeHeight * 0.3,
-                margin: const EdgeInsets.only(
-                  top: 20,
-                  bottom: 0,
-                  right: 20,
-                  left: 20,
-                ),
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color(0xFFAB8914),
-                      Color(0xFFAB8914),
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  borderRadius: BorderRadius.only(
-                      // topLeft: Radius.circular(15),
-                      // topRight: Radius.circular(15),
-                      ),
-                ),
-                child: _viewCard
-                    ? InformationCard(
-                        _nameHome,
-                        _meaningHome,
-                        clearName,
-                      )
-                    : const InformationCard(
-                        'إختر من قائمة الأسماء',
-                        'سيتم عرض الوصف هنا',
-                        null,
-                      ),
-              ),
-              ListOfNames(_names, pickName),
-            ],
-          ),
+          ListOfNames(_names, pickName),
         ],
       ),
     );
