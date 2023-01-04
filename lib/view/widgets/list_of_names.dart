@@ -12,7 +12,7 @@ class ListOfNames extends StatelessWidget {
     return Expanded(
       child: Container(
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.secondary.withOpacity(0.1),
+          color: Theme.of(context).colorScheme.secondary,
           borderRadius: const BorderRadius.only(
               // topRight: Radius.circular(15),
               // topLeft: Radius.circular(15),
@@ -33,7 +33,6 @@ class ListOfNames extends StatelessWidget {
                   vertical: 10,
                 ),
                 child: Container(
-                  height: 50,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     border: Border.all(
@@ -62,7 +61,7 @@ class ListOfNames extends StatelessWidget {
                               names[index].name.toString(),
                               style: TextStyle(
                                 fontSize: 24,
-                                color: Theme.of(context).colorScheme.secondary,
+                                color: Colors.black,
                               ),
                             ),
                           ],

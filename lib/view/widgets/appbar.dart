@@ -20,8 +20,8 @@ class _MyAppBarState extends State<MyAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      foregroundColor: Theme.of(context).colorScheme.secondary,
-      backgroundColor: Theme.of(context).backgroundColor,
+      foregroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       title: _isSearching
           ? Container(
               padding: const EdgeInsets.symmetric(
