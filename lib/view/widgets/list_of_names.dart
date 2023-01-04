@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:names_of_allah/models/names.dart';
 
 class ListOfNames extends StatelessWidget {
-  final List<Names> names;
-  final Function function;
   const ListOfNames(this.names, this.function, {Key? key}) : super(key: key);
+
+  final Function function;
+  final List<Names> names;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,11 @@ class ListOfNames extends StatelessWidget {
         ),
         margin: const EdgeInsets.symmetric(horizontal: 20),
         padding: const EdgeInsets.only(top: 0.0),
-        child: ListView.builder(
+        child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisExtent: 80,
+            ),
             itemCount: names.length,
             itemBuilder: (ctx, index) {
               return Padding(
