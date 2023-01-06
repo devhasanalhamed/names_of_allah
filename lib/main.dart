@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:names_of_allah/providers/namesProvider.dart';
-import 'package:names_of_allah/theme/theme_constants.dart';
-import 'package:names_of_allah/theme/theme_manager.dart';
-import 'view/screens/home_page.dart';
+import 'package:names_of_allah/app/providers/namesProvider.dart';
+import 'package:names_of_allah/core/colors/theme_constants.dart';
+import 'package:names_of_allah/core/controllers/theme_manager.dart';
+import 'package:names_of_allah/core/data/light_theme_data.dart';
+import 'app/view/screens/home_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       child: Consumer<ThemeManager>(
         builder: (context, theme, child) => MaterialApp(
           title: 'أسماء الله الحُسنى',
-          theme: lightTheme,
+          theme: getLightThemeData(),
           darkTheme: darkTheme,
           themeMode: Provider.of<ThemeManager>(context).themeMode,
           home: ChangeNotifierProvider(

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 
-
 class NumberBadge extends StatelessWidget {
   final String num;
-  const NumberBadge(
-      this.num,
-      {Key? key}) : super(key: key);
+  const NumberBadge(this.num, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
