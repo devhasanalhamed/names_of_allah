@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 
-const lightPrimary = Colors.amber;
+const lightPrimary = Color(0xFFFFC107);
 const lightSecondary = Color(0xFF333333);
-const lightBackGround = Color(0xFF0D0D0D);
+const lightBackGround = Color(0xFF333333);
 
 const darkPrimary = Color.fromARGB(255, 216, 216, 216);
 const darkBackground = Color.fromARGB(255, 85, 110, 83);
