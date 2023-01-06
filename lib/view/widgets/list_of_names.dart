@@ -16,23 +16,12 @@ class _ListOfNamesState extends State<ListOfNames> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.secondary,
-          borderRadius: const BorderRadius.only(
-              // topRight: Radius.circular(15),
-              // topLeft: Radius.circular(15),
-              ),
-        ),
-        margin: const EdgeInsets.symmetric(horizontal: 0),
-        padding: const EdgeInsets.only(top: 0.0),
-        child: ListView.builder(
-            itemCount: widget.names.length,
-            itemBuilder: (ctx, index) {
-              return NamesHolder(
-                  widget.names[index].name, widget.names[index].meaning);
-            }),
-      ),
+      child: ListView.builder(
+          itemCount: widget.names.length,
+          itemBuilder: (ctx, index) {
+            return NamesHolder(
+                widget.names[index].name, widget.names[index].meaning);
+          }),
     );
   }
 }
@@ -85,6 +74,7 @@ class _NamesHolder extends State<NamesHolder> {
                     style: const TextStyle(
                       fontSize: 24,
                       color: Colors.black,
+                      // fontFamily: 'Solo',
                     ),
                   ),
                   if (clicked)
