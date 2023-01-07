@@ -83,40 +83,6 @@ class _HomePageState extends State<HomePage> {
       appBar: const MyAppBar(),
       body: Column(
         children: [
-          // Container(
-          //   height: sizeHeight * 0.3,
-          //   margin: const EdgeInsets.only(
-          //     top: 20,
-          //     bottom: 0,
-          //     right: 20,
-          //     left: 20,
-          //   ),
-          //   decoration: const BoxDecoration(
-          //     gradient: LinearGradient(
-          //       colors: [
-          //         Color(0xFFAB8914),
-          //         Color(0xFFAB8914),
-          //       ],
-          //       begin: Alignment.topLeft,
-          //       end: Alignment.bottomRight,
-          //     ),
-          //     borderRadius: BorderRadius.only(
-          //         // topLeft: Radius.circular(15),
-          //         // topRight: Radius.circular(15),
-          //         ),
-          //   ),
-          //   child: _viewCard
-          //       ? InformationCard(
-          //           _nameHome,
-          //           _meaningHome,
-          //           clearName,
-          //         )
-          //       : const InformationCard(
-          //           'إختر من قائمة الأسماء',
-          //           'سيتم عرض الوصف هنا',
-          //           null,
-          //         ),
-          // ),
           ListOfNames(_names, pickName),
         ],
       ),
