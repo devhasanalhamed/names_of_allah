@@ -20,7 +20,7 @@ class _ListOfNamesState extends State<ListOfNames> {
           itemCount: widget.names.length,
           itemBuilder: (ctx, index) {
             return NamesHolder(
-                widget.names[index].name, widget.names[index].meaning);
+                widget.names[index].name, widget.names[index].meaning, index);
           }),
     );
   }
@@ -29,7 +29,9 @@ class _ListOfNamesState extends State<ListOfNames> {
 class NamesHolder extends StatefulWidget {
   final String name;
   final String meaning;
-  const NamesHolder(this.name, this.meaning, {Key? key}) : super(key: key);
+  final int index;
+  const NamesHolder(this.name, this.meaning, this.index, {Key? key})
+      : super(key: key);
 
   @override
   State<NamesHolder> createState() => _NamesHolder();
@@ -69,13 +71,21 @@ class _NamesHolder extends State<NamesHolder> {
               padding: const EdgeInsets.all(2.0),
               child: Column(
                 children: [
-                  Text(
-                    widget.name,
-                    style: const TextStyle(
-                      fontSize: 24,
-                      color: Colors.black,
-                      // fontFamily: 'Solo',
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text(
+                        widget.name,
+                        style: const TextStyle(
+                          fontSize: 24,
+                          color: Colors.black,
+                          // fontFamily: 'Solo',
+                        ),
+                      ),
+                      Container(
+                        child: Text('${widget.index}'),
+                      ),
+                    ],
                   ),
                   if (clicked)
                     Expanded(
