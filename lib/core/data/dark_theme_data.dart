@@ -30,7 +30,7 @@ ThemeData getDarkThemeData() => ThemeData(
       splashColor: ColorsDark.backgroundColor,
       //*
       iconTheme: const IconThemeData(
-        color: ColorsDark.backgroundColor,
+        color: ColorsDark.primaryColor,
         size: 26,
       ),
       //! Appbar theme starts here
