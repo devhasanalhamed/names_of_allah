@@ -52,12 +52,12 @@ class _NamesHolder extends State<NamesHolder> {
         height: clicked ? 250 : 60,
         decoration: BoxDecoration(
           border: Border.all(
-            color: Theme.of(context).backgroundColor.withOpacity(0.5),
+            color: Theme.of(context).colorScheme.primary,
           ),
           borderRadius: const BorderRadius.all(
             Radius.circular(12),
           ),
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).colorScheme.secondary,
         ),
         child: InkWell(
           borderRadius: const BorderRadius.all(Radius.circular(12)),
@@ -78,12 +78,15 @@ class _NamesHolder extends State<NamesHolder> {
                         widget.name,
                         style: const TextStyle(
                           fontSize: 24,
-                          color: Colors.black,
+                          color: Colors.white,
                           // fontFamily: 'Solo',
                         ),
                       ),
-                      Container(
-                        child: Text('${widget.index}'),
+                      Text(
+                        '${widget.index}',
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),
                       ),
                     ],
                   ),
@@ -97,8 +100,9 @@ class _NamesHolder extends State<NamesHolder> {
                             Radius.circular(12),
                           ),
                           color: Theme.of(context)
-                              .backgroundColor
-                              .withOpacity(0.5),
+                              .colorScheme
+                              .primary
+                              .withOpacity(0.2),
                         ),
                         child: ListView(
                           children: [
