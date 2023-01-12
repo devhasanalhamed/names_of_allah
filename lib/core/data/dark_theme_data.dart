@@ -28,6 +28,7 @@ ThemeData getDarkThemeData() => ThemeData(
         ),
         bodyMedium: TextStyle(
           color: ColorsDark.textColorBodyMedium,
+          fontSize: 18,
         ),
         bodySmall: TextStyle(
           color: ColorsDark.textColorBodySmall,
