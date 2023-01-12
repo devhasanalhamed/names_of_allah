@@ -99,7 +99,7 @@ class _NamesHolder extends State<NamesHolder> {
                           color: Theme.of(context)
                               .colorScheme
                               .primary
-                              .withOpacity(0.2),
+                              .withOpacity(0.1),
                         ),
                         child: ListView(
                           children: [
