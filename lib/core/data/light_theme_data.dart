@@ -16,12 +16,25 @@ ThemeData getLightThemeData() => ThemeData(
       ),
       //! texttheme section
       textTheme: const TextTheme(
-        titleLarge: TextStyle(),
-        titleMedium: TextStyle(),
-        titleSmall: TextStyle(),
-        bodyLarge: TextStyle(),
-        bodyMedium: TextStyle(),
-        bodySmall: TextStyle(),
+        titleLarge: TextStyle(
+          color: ColorsLight.textColorTitleLarge,
+        ),
+        titleMedium: TextStyle(
+          color: ColorsLight.textColorTitleMedium,
+        ),
+        titleSmall: TextStyle(
+          color: ColorsLight.textColorTitleSmall,
+        ),
+        bodyLarge: TextStyle(
+          color: ColorsLight.textColorBodyLarge,
+        ),
+        bodyMedium: TextStyle(
+          color: ColorsLight.textColorBodyMedium,
+          fontSize: 18,
+        ),
+        bodySmall: TextStyle(
+          color: ColorsLight.textColorBodySmall,
+        ),
       ),
       //*
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
@@ -32,13 +45,13 @@ ThemeData getLightThemeData() => ThemeData(
       splashColor: ColorsLight.backgroundColor,
       //*
       iconTheme: const IconThemeData(
-        color: ColorsLight.backgroundColor,
+        color: ColorsLight.primaryColor,
         size: 26,
       ),
       //! Appbar theme starts here
       appBarTheme: const AppBarTheme(
-        backgroundColor: ColorsLight.backgroundColor,
-        foregroundColor: ColorsLight.primaryColor,
+        backgroundColor: ColorsLight.primaryColor,
+        foregroundColor: ColorsLight.backgroundColor,
         titleTextStyle: TextStyle(
           color: Colors.white,
           fontFamily: 'NotoKufiArabic',

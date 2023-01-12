@@ -14,12 +14,24 @@ ThemeData getDarkThemeData() => ThemeData(
       ),
       //! texttheme section
       textTheme: const TextTheme(
-        titleLarge: TextStyle(),
-        titleMedium: TextStyle(),
-        titleSmall: TextStyle(),
-        bodyLarge: TextStyle(),
-        bodyMedium: TextStyle(),
-        bodySmall: TextStyle(),
+        titleLarge: TextStyle(
+          color: ColorsDark.textColorTitleLarge,
+        ),
+        titleMedium: TextStyle(
+          color: ColorsDark.textColorTitleMedium,
+        ),
+        titleSmall: TextStyle(
+          color: ColorsDark.textColorTitleSmall,
+        ),
+        bodyLarge: TextStyle(
+          color: ColorsDark.textColorBodyLarge,
+        ),
+        bodyMedium: TextStyle(
+          color: ColorsDark.textColorBodyMedium,
+        ),
+        bodySmall: TextStyle(
+          color: ColorsDark.textColorBodySmall,
+        ),
       ),
       //*
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
