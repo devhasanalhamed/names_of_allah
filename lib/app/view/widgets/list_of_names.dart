@@ -52,7 +52,7 @@ class _NamesHolder extends State<NamesHolder> {
         height: clicked ? 250 : 60,
         decoration: BoxDecoration(
           border: Border.all(
-            color: Theme.of(context).colorScheme.primary,
+            color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
           ),
           borderRadius: const BorderRadius.all(
             Radius.circular(12),
@@ -78,15 +78,12 @@ class _NamesHolder extends State<NamesHolder> {
                         widget.name,
                         style: const TextStyle(
                           fontSize: 24,
-                          color: Colors.white,
                           // fontFamily: 'Solo',
                         ),
                       ),
                       Text(
                         '${widget.index}',
-                        style: const TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: const TextStyle(),
                       ),
                     ],
                   ),
@@ -108,10 +105,7 @@ class _NamesHolder extends State<NamesHolder> {
                           children: [
                             Text(
                               widget.meaning,
-                              style: const TextStyle(
-                                fontSize: 18,
-                                color: Colors.white,
-                              ),
+                              style: Theme.of(context).textTheme.bodyMedium,
                             ),
                           ],
                         ),
@@ -129,6 +123,7 @@ class _NamesHolder extends State<NamesHolder> {
                               ),
                               Icon(
                                 Icons.favorite,
+                                color: Colors.red,
                               ),
                               Icon(
                                 Icons.copy,
