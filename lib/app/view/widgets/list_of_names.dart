@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:names_of_allah/app/models/names.dart';
 
+import 'interactive_icons.dart';
+
 class ListOfNames extends StatefulWidget {
   const ListOfNames(this.names, this.function, {Key? key}) : super(key: key);
 
@@ -111,27 +113,7 @@ class _NamesHolder extends State<NamesHolder> {
                         ),
                       ),
                     ),
-                  AnimatedContainer(
-                    duration: Duration(milliseconds: clicked ? 300 : 100),
-                    height: clicked ? 50 : 0,
-                    child: clicked
-                        ? Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: const [
-                              Icon(
-                                Icons.share,
-                              ),
-                              Icon(
-                                Icons.favorite,
-                                color: Colors.red,
-                              ),
-                              Icon(
-                                Icons.copy,
-                              ),
-                            ],
-                          )
-                        : null,
-                  ),
+                  InteractiveIcons(clicked: clicked),
                 ],
               ),
             ),
