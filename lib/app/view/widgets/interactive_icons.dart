@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:names_of_allah/app/controllers/dataProvider.dart';
 
 class InteractiveIcons extends StatelessWidget {
   const InteractiveIcons({
     Key? key,
     required this.clicked,
+    required this.name,
+    required this.meaning,
   }) : super(key: key);
 
   final bool clicked;
+  final String name;
+  final String meaning;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +31,9 @@ class InteractiveIcons extends StatelessWidget {
                   icon: const Icon(Icons.favorite),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    DataProvider().copyToClipboard(context, name, meaning);
+                  },
                   icon: const Icon(Icons.copy),
                 ),
               ],
