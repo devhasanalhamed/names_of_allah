@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:names_of_allah/app/providers/namesProvider.dart';
+import 'package:names_of_allah/app/controllers/dataProvider.dart';
 import 'package:names_of_allah/core/controllers/theme_manager.dart';
 import 'package:names_of_allah/core/data/light_theme_data.dart';
 import 'app/view/screens/home_page.dart';

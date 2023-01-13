@@ -113,7 +113,10 @@ class _NamesHolder extends State<NamesHolder> {
                         ),
                       ),
                     ),
-                  InteractiveIcons(clicked: clicked),
+                  InteractiveIcons(
+                      clicked: clicked,
+                      name: widget.name,
+                      meaning: widget.meaning),
                 ],
               ),
             ),

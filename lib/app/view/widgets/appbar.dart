@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../providers/namesProvider.dart';
+import '../../controllers/dataProvider.dart';
 import '../../../core/controllers/theme_manager.dart';
 
 class MyAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -27,11 +27,11 @@ class _MyAppBarState extends State<MyAppBar> {
               ),
               height: 50,
               width: double.infinity,
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(
+              decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(
                     Radius.circular(15),
                   ),
-                  color: Colors.black26),
+                  color: Theme.of(context).colorScheme.background),
               child: TextField(
                 decoration: const InputDecoration(
                   border: InputBorder.none,
