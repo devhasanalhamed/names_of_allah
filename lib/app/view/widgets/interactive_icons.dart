@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:names_of_allah/app/controllers/dataProvider.dart';
+import 'package:provider/provider.dart';
 
 class InteractiveIcons extends StatelessWidget {
   const InteractiveIcons({
@@ -7,11 +8,13 @@ class InteractiveIcons extends StatelessWidget {
     required this.clicked,
     required this.name,
     required this.meaning,
+    required this.favorite,
   }) : super(key: key);
 
   final bool clicked;
   final String name;
   final String meaning;
+  final bool favorite;
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +30,14 @@ class InteractiveIcons extends StatelessWidget {
                   icon: const Icon(Icons.share),
                 ),
                 IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.favorite),
+                  onPressed: () {
+                    Provider.of<DataProvider>(context, listen: false)
+                        .addFavorite(name);
+                  },
+                  icon: favorite
+                      ? const Icon(Icons.favorite)
+                      : const Icon(Icons.favorite_border),
+                  color: Colors.red,
                 ),
                 IconButton(
                   onPressed: () {

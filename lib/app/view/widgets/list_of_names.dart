@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:names_of_allah/app/models/names.dart';
 
 import 'interactive_icons.dart';
@@ -70,11 +71,13 @@ class _NamesHolder extends State<NamesHolder> {
           },
           child: Center(
             child: Padding(
-              padding: const EdgeInsets.all(2.0),
+              padding: const EdgeInsets.only(
+                right: 30.0,
+              ),
               child: Column(
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         widget.name,
@@ -83,10 +86,20 @@ class _NamesHolder extends State<NamesHolder> {
                           // fontFamily: 'Solo',
                         ),
                       ),
-                      Text(
-                        '${widget.index}',
-                        style: const TextStyle(),
+                      SizedBox(
+                        height: 50,
+                        width: 110,
+                        child: SvgPicture.asset(
+                          'assets/images/islamicSVG.svg',
+                          color: Theme.of(context).colorScheme.primary,
+                          semanticsLabel: 'islamic',
+                          fit: BoxFit.fitWidth,
+                        ),
                       ),
+                      // Text(
+                      //   '${widget.index}',
+                      //   style: const TextStyle(),
+                      // ),
                     ],
                   ),
                   if (clicked)
@@ -114,9 +127,11 @@ class _NamesHolder extends State<NamesHolder> {
                       ),
                     ),
                   InteractiveIcons(
-                      clicked: clicked,
-                      name: widget.name,
-                      meaning: widget.meaning),
+                    clicked: clicked,
+                    name: widget.name,
+                    meaning: widget.meaning,
+                    favorite: false,
+                  ),
                 ],
               ),
             ),
