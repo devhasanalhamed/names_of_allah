@@ -49,36 +49,7 @@ class _HomePageState extends State<HomePage> {
     final _names =
         Provider.of<DataProvider>(context, listen: true).namesOfAllah;
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          //TODO fix the dialog
-          showAboutDialog(
-            context: context,
-            children: [
-              const Text('تم تطويره من قبل:',
-                  textAlign: TextAlign.center,
-                  textDirection: TextDirection.rtl),
-              const Text(
-                'أحمد العمودي',
-                textAlign: TextAlign.end,
-              ),
-              const Text(
-                'Ahmed@amoudi',
-                textAlign: TextAlign.end,
-              ),
-              const Text(
-                'حسن الحامد',
-                textAlign: TextAlign.end,
-              ),
-              const Text(
-                'hassan@hamed',
-                textAlign: TextAlign.end,
-              ),
-            ],
-          );
-        },
-        child: const Icon(Icons.question_mark),
-      ),
+      floatingActionButton: const MyFloatingWidget(),
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: const MyAppBar(),
       body: Column(
@@ -86,6 +57,45 @@ class _HomePageState extends State<HomePage> {
           ListOfNames(_names, pickName),
         ],
       ),
+    );
+  }
+}
+
+class MyFloatingWidget extends StatelessWidget {
+  const MyFloatingWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () {
+        //TODO fix the dialog
+        showAboutDialog(
+          context: context,
+          children: [
+            const Text('تم تطويره من قبل:',
+                textAlign: TextAlign.center, textDirection: TextDirection.rtl),
+            const Text(
+              'أحمد العمودي',
+              textAlign: TextAlign.end,
+            ),
+            const Text(
+              'Ahmed@amoudi',
+              textAlign: TextAlign.end,
+            ),
+            const Text(
+              'حسن الحامد',
+              textAlign: TextAlign.end,
+            ),
+            const Text(
+              'hassan@hamed',
+              textAlign: TextAlign.end,
+            ),
+          ],
+        );
+      },
+      child: const Icon(Icons.question_mark),
     );
   }
 }

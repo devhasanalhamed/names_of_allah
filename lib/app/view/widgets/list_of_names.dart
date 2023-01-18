@@ -23,7 +23,10 @@ class _ListOfNamesState extends State<ListOfNames> {
           itemCount: widget.names.length,
           itemBuilder: (ctx, index) {
             return NamesHolder(
-                widget.names[index].name, widget.names[index].meaning, index);
+                widget.names[index].name,
+                widget.names[index].meaning,
+                index,
+                widget.names[index].favorite);
           }),
     );
   }
@@ -33,7 +36,9 @@ class NamesHolder extends StatefulWidget {
   final String name;
   final String meaning;
   final int index;
-  const NamesHolder(this.name, this.meaning, this.index, {Key? key})
+  final bool favorite;
+  const NamesHolder(this.name, this.meaning, this.index, this.favorite,
+      {Key? key})
       : super(key: key);
 
   @override
@@ -129,7 +134,7 @@ class _NamesHolder extends State<NamesHolder> {
                     clicked: clicked,
                     name: widget.name,
                     meaning: widget.meaning,
-                    favorite: false,
+                    favorite: widget.favorite,
                   ),
                 ],
               ),

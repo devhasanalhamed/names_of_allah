@@ -17,7 +17,7 @@ class DataProvider with ChangeNotifier {
       meaning:
           'الفرد، المتفرد بصفات الكمال، الذي لانظير له ولامثيل له في ذاته ولا في صفاته وأفعاله وألوهيته',
       search: 'الاحد الأحد',
-      favorite: false,
+      favorite: true,
     ),
     Names(
       name: 'الأعلى',
@@ -56,7 +56,7 @@ class DataProvider with ChangeNotifier {
       meaning:
           'الذي استعلى على خلقه بذاته، واستعلى عليهم بحججه وآياته، وقهرهم بقوته وسلطانه ',
       search: 'الظاهر',
-      favorite: false,
+      favorite: true,
     ),
     Names(
       name: 'الباطن',
@@ -669,10 +669,12 @@ class DataProvider with ChangeNotifier {
   void addFavorite(String name) {
     final i = _finalList.indexWhere((element) => element.name == name);
     _finalList[i] = Names(
-        name: _finalList[i].name,
-        meaning: _finalList[i].meaning,
-        search: _finalList[i].search,
-        favorite: _finalList[i].favorite = !_finalList[i].favorite);
+      name: _finalList[i].name,
+      meaning: _finalList[i].meaning,
+      search: _finalList[i].search,
+      favorite: !_finalList[i].favorite,
+    );
+    print(_finalList[i].favorite);
   }
 
   Future<void> copyToClipboard(context, name, data) async {
