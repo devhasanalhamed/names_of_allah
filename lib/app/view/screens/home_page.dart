@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:names_of_allah/app/controllers/dataProvider.dart';
+import 'package:names_of_allah/app/view/widgets/fab_widget.dart';
 import 'package:names_of_allah/core/controllers/theme_manager.dart';
 import 'package:names_of_allah/app/view/widgets/appbar.dart';
 import 'package:names_of_allah/archive/information_card.dart';
@@ -49,7 +50,7 @@ class _HomePageState extends State<HomePage> {
     final _names =
         Provider.of<DataProvider>(context, listen: true).namesOfAllah;
     return Scaffold(
-      floatingActionButton: const MyFloatingWidget(),
+      floatingActionButton: const MyFABWidget(),
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: const MyAppBar(),
       body: Column(
