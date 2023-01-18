@@ -87,13 +87,12 @@ class _NamesHolder extends State<NamesHolder> {
                         ),
                       ),
                       SizedBox(
-                        height: 50,
+                        height: 40,
                         width: 110,
                         child: SvgPicture.asset(
                           'assets/images/islamicSVG.svg',
                           color: Theme.of(context).colorScheme.primary,
                           semanticsLabel: 'islamic',
-                          fit: BoxFit.fitWidth,
                         ),
                       ),
                       // Text(
