@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:names_of_allah/app/controllers/dataProvider.dart';
 import 'dart:math';
+
+import 'package:provider/provider.dart';
 
 const buttonSize = 60.0;
 
@@ -16,52 +19,102 @@ class _MyFABWidgetState extends State<MyFABWidget>
 
   @override
   void initState() {
-    // TODO: implement initState
+    controller = AnimationController(
+      duration: const Duration(
+        milliseconds: 200,
+      ),
+      vsync: this,
+    );
     super.initState();
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Flow(
-      delegate: FlowMenuDelegate(),
+      delegate: FlowMenuDelegate(animationController: controller),
       children: <IconData>[
-        Icons.question_answer,
-        Icons.question_answer,
+        Icons.menu,
+        Icons.question_mark,
+        Icons.favorite,
       ].map<Widget>(buildFAB).toList(),
     );
   }
 
-  Widget buildFAB(IconData icon) => SizedBox(
-        width: buttonSize,
-        height: buttonSize,
-        child: FloatingActionButton(
-          elevation: 0.0,
-          child: Icon(
-            icon,
-            size: 30.0,
-            color: Colors.white,
-          ),
-          onPressed: () {},
+  Widget buildFAB(IconData icon) {
+    var toggleFavorite = false;
+    return SizedBox(
+      width: buttonSize,
+      height: buttonSize,
+      child: FloatingActionButton(
+        elevation: 0.0,
+        child: Icon(
+          icon,
+          size: 30.0,
+          color: Colors.white,
         ),
-      );
+        onPressed: () {
+          if (icon == Icons.menu) {
+            if (controller.status == AnimationStatus.completed) {
+              controller.reverse();
+            } else {
+              controller.forward();
+            }
+          }
+          if (icon == Icons.favorite) {
+            toggleFavorite = !toggleFavorite;
+            Provider.of<DataProvider>(context, listen: false)
+                .showFavoriteInList(toggleFavorite);
+            controller.reverse();
+          }
+          if (icon == Icons.question_mark) {
+            print('ff');
+            controller.reverse();
+          }
+        },
+      ),
+    );
+  }
 }
 
 class FlowMenuDelegate extends FlowDelegate {
+  final AnimationController animationController;
+
+  FlowMenuDelegate({required this.animationController})
+      : super(repaint: animationController);
   @override
   void paintChildren(FlowPaintingContext context) {
     final size = context.size;
-    final xStart = size.width - buttonSize;
-    final yStart = size.width - buttonSize;
-    context.paintChild(
-      0,
-      // transform: Matrix4.identity()..translate(0, -200, 0),
-    );
+    const xStart = buttonSize;
+    final yStart = size.height - buttonSize;
+    final n = context.childCount;
+    const margin = 5;
+    if (animationController.status == AnimationStatus.forward ||
+        animationController.status == AnimationStatus.reverse ||
+        animationController.status == AnimationStatus.completed) {
+      for (int i = 0; i < n; i++) {
+        final x = xStart - buttonSize;
+        final dx = (buttonSize + margin) * i;
+        final y = yStart - dx * animationController.value;
+        context.paintChild(
+          i,
+          transform: Matrix4.translationValues(x, y, 0),
+        );
+      }
+      ;
+    } else {
+      final x = xStart - buttonSize;
+      final y = yStart;
+      context.paintChild(
+        0,
+        transform: Matrix4.translationValues(x, y, 0),
+      );
+    }
   }
 
   @override
