@@ -666,6 +666,16 @@ class DataProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void showFavoriteInList(bool toggleFavorite) {
+    if (toggleFavorite) {
+      _finalList =
+          _namesOfAllah.where((element) => element.favorite == true).toList();
+    } else {
+      returnOriginal();
+    }
+    notifyListeners();
+  }
+
   void addFavorite(String name) {
     final i = _finalList.indexWhere((element) => element.name == name);
     _finalList[i] = Names(
@@ -675,6 +685,7 @@ class DataProvider with ChangeNotifier {
       favorite: !_finalList[i].favorite,
     );
     print(_finalList[i].favorite);
+    notifyListeners();
   }
 
   Future<void> copyToClipboard(context, name, data) async {
