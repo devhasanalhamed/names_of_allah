@@ -65,7 +65,7 @@ class _NamesHolder extends State<NamesHolder> {
           borderRadius: const BorderRadius.all(
             Radius.circular(12),
           ),
-          color: Theme.of(context).colorScheme.secondary,
+          color: Theme.of(context).colorScheme.secondary.withOpacity(0.9),
         ),
         child: InkWell(
           borderRadius: const BorderRadius.all(Radius.circular(12)),
@@ -74,70 +74,69 @@ class _NamesHolder extends State<NamesHolder> {
               clicked = !clicked;
             });
           },
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.only(
-                right: 30.0,
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        widget.name,
-                        style: const TextStyle(
-                          fontSize: 24,
-                          // fontFamily: 'Solo',
-                        ),
-                      ),
-                      SizedBox(
-                        height: 40,
-                        width: 110,
-                        child: SvgPicture.asset(
-                          'assets/images/islamicSVG.svg',
-                          color: Theme.of(context).colorScheme.primary,
-                          semanticsLabel: 'islamic',
-                        ),
-                      ),
-                      // Text(
-                      //   '${widget.index}',
-                      //   style: const TextStyle(),
-                      // ),
-                    ],
-                  ),
-                  if (clicked)
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.all(15),
-                        margin: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(12),
-                          ),
-                          color: Theme.of(context)
-                              .colorScheme
-                              .primary
-                              .withOpacity(0.1),
-                        ),
-                        child: ListView(
-                          children: [
-                            Text(
-                              widget.meaning,
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ],
-                        ),
+          child: Padding(
+            padding: const EdgeInsets.only(
+              right: 30,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      widget.name,
+                      style: const TextStyle(
+                        fontSize: 24,
+                        // fontFamily: 'Solo',
                       ),
                     ),
-                  InteractiveIcons(
-                    clicked: clicked,
-                    name: widget.name,
-                    meaning: widget.meaning,
-                    favorite: widget.favorite,
+                    SizedBox(
+                      height: 50,
+                      width: 110,
+                      child: SvgPicture.asset(
+                        'assets/images/Asset.svg',
+                        color: Theme.of(context).colorScheme.primary,
+                        semanticsLabel: 'islamic',
+                      ),
+                    ),
+                    // Text(
+                    //   '${widget.index}',
+                    //   style: const TextStyle(),
+                    // ),
+                  ],
+                ),
+                if (clicked)
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(15),
+                      margin: const EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(12),
+                        ),
+                        color: Theme.of(context)
+                            .colorScheme
+                            .primary
+                            .withOpacity(0.1),
+                      ),
+                      child: ListView(
+                        children: [
+                          Text(
+                            widget.meaning,
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                ],
-              ),
+                InteractiveIcons(
+                  clicked: clicked,
+                  name: widget.name,
+                  meaning: widget.meaning,
+                  favorite: widget.favorite,
+                ),
+              ],
             ),
           ),
         ),
