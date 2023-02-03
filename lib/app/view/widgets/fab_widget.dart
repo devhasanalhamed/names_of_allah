@@ -53,6 +53,7 @@ class _MyFABWidgetState extends State<MyFABWidget>
       height: buttonSize,
       child: FloatingActionButton(
         elevation: 0.0,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         child: Icon(
           icon,
           size: 30.0,
@@ -69,11 +70,66 @@ class _MyFABWidgetState extends State<MyFABWidget>
           if (icon == Icons.favorite) {
             toggleFavorite = !toggleFavorite;
             Provider.of<DataProvider>(context, listen: false)
-                .showFavoriteInList(toggleFavorite);
+                .toggleFavoriteList();
             controller.reverse();
           }
           if (icon == Icons.question_mark) {
-            print('ff');
+            showDialog(
+              context: context,
+              builder: (context) => Dialog(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.secondary,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(24),
+                    ),
+                  ),
+                  height: 300,
+                  width: double.infinity,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text('أسماء الله الحُسنى'),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: const [
+                          Text('تم تطويره من قبل:',
+                              textAlign: TextAlign.center,
+                              textDirection: TextDirection.rtl),
+                          Text(
+                            'أحمد العمودي',
+                            textAlign: TextAlign.end,
+                          ),
+                          Text(
+                            'Ahmed@amoudi',
+                            textAlign: TextAlign.end,
+                          ),
+                          Text(
+                            'حسن الحامد',
+                            textAlign: TextAlign.end,
+                          ),
+                          Text(
+                            'hassan@hamed',
+                            textAlign: TextAlign.end,
+                          ),
+                        ],
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text('إغلاق'),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            );
             controller.reverse();
           }
         },
