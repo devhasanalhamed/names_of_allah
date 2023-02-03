@@ -1,12 +1,9 @@
-//TODO upgrades to the design
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:names_of_allah/app/controllers/dataProvider.dart';
 import 'package:names_of_allah/app/view/widgets/fab_widget.dart';
 import 'package:names_of_allah/core/controllers/theme_manager.dart';
 import 'package:names_of_allah/app/view/widgets/appbar.dart';
-import 'package:names_of_allah/archive/information_card.dart';
 import 'package:names_of_allah/app/view/widgets/list_of_names.dart';
 
 import 'package:provider/provider.dart';
@@ -85,29 +82,6 @@ class MyFloatingWidget extends StatelessWidget {
     return FloatingActionButton(
       onPressed: () {
         //TODO fix the dialog
-        showAboutDialog(
-          context: context,
-          children: [
-            const Text('تم تطويره من قبل:',
-                textAlign: TextAlign.center, textDirection: TextDirection.rtl),
-            const Text(
-              'أحمد العمودي',
-              textAlign: TextAlign.end,
-            ),
-            const Text(
-              'Ahmed@amoudi',
-              textAlign: TextAlign.end,
-            ),
-            const Text(
-              'حسن الحامد',
-              textAlign: TextAlign.end,
-            ),
-            const Text(
-              'hassan@hamed',
-              textAlign: TextAlign.end,
-            ),
-          ],
-        );
       },
       child: const Icon(Icons.question_mark),
     );
