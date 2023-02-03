@@ -20,14 +20,12 @@ class _ListOfNamesState extends State<ListOfNames> {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-          itemCount: widget.names.length,
-          itemBuilder: (ctx, index) {
-            return NamesHolder(
-                widget.names[index].name,
-                widget.names[index].meaning,
-                index,
-                widget.names[index].favorite);
-          }),
+        itemCount: widget.names.length,
+        itemBuilder: (ctx, index) {
+          return NamesHolder(widget.names[index].name,
+              widget.names[index].meaning, index, widget.names[index].favorite);
+        },
+      ),
     );
   }
 }
@@ -65,7 +63,9 @@ class _NamesHolder extends State<NamesHolder> {
           borderRadius: const BorderRadius.all(
             Radius.circular(12),
           ),
-          color: Theme.of(context).colorScheme.secondary.withOpacity(0.9),
+          color: clicked
+              ? Theme.of(context).colorScheme.secondary
+              : Theme.of(context).colorScheme.secondary.withOpacity(0.95),
         ),
         child: InkWell(
           borderRadius: const BorderRadius.all(Radius.circular(12)),
@@ -91,18 +91,14 @@ class _NamesHolder extends State<NamesHolder> {
                         // fontFamily: 'Solo',
                       ),
                     ),
-                    SizedBox(
-                      height: 50,
-                      width: 110,
-                      child: SvgPicture.asset(
-                        'assets/images/Asset.svg',
-                        color: Theme.of(context).colorScheme.primary,
-                        semanticsLabel: 'islamic',
-                      ),
-                    ),
-                    // Text(
-                    //   '${widget.index}',
-                    //   style: const TextStyle(),
+                    // SizedBox(
+                    //   height: 50,
+                    //   width: 110,
+                    //   child: SvgPicture.asset(
+                    //     'assets/images/Asset.svg',
+                    //     color: Theme.of(context).colorScheme.primary,
+                    //     semanticsLabel: 'islamic',
+                    //   ),
                     // ),
                   ],
                 ),
