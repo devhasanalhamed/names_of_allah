@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../models/names.dart';
 
 class DataProvider with ChangeNotifier {
+  var toggleFavorite = false;
   static final List<Names> _namesOfAllah = [
 //الأسماء الواردة في القران
     Names(
@@ -666,7 +667,8 @@ class DataProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void showFavoriteInList(bool toggleFavorite) {
+  void toggleFavoriteList() {
+    toggleFavorite = !toggleFavorite;
     if (toggleFavorite) {
       _finalList =
           _namesOfAllah.where((element) => element.favorite == true).toList();
