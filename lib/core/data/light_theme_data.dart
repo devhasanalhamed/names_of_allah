@@ -60,4 +60,13 @@ ThemeData getLightThemeData() => ThemeData(
         centerTitle: true,
         elevation: 0.0,
       ),
+
+      //! show dialog
+      dialogTheme: const DialogTheme(
+        backgroundColor: ColorsLight.backgroundColor,
+        contentTextStyle: TextStyle(
+          color: ColorsLight.primaryColor,
+          fontSize: 18,
+        ),
+      ),
     );

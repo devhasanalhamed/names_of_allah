@@ -58,4 +58,13 @@ ThemeData getDarkThemeData() => ThemeData(
         centerTitle: true,
         elevation: 0.0,
       ),
+
+      //! dialog theme
+      dialogTheme: const DialogTheme(
+        backgroundColor: ColorsDark.secondaryColor,
+        contentTextStyle: TextStyle(
+          color: Colors.white,
+          fontSize: 18,
+        ),
+      ),
     );
