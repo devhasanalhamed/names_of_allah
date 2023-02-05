@@ -9,16 +9,19 @@ class DataProvider with ChangeNotifier {
   static final List<Names> _namesOfAllah = [
 //الأسماء الواردة في القران
     Names(
-        name: 'الله',
-        meaning: 'هو الله الإله المألوه المعبود بحق',
-        search: 'الله',
-        favorite: false),
+      name: 'الله',
+      meaning: 'هو الله الإله المألوه المعبود بحق',
+      search: 'الله',
+      favorite: false,
+      open: false,
+    ),
     Names(
       name: 'الأحد',
       meaning:
           'الفرد، المتفرد بصفات الكمال، الذي لانظير له ولامثيل له في ذاته ولا في صفاته وأفعاله وألوهيته',
       search: 'الاحد الأحد',
       favorite: true,
+      open: true,
     ),
     // Names(
     //   name: 'الأعلى',
@@ -685,6 +688,7 @@ class DataProvider with ChangeNotifier {
       meaning: _finalList[i].meaning,
       search: _finalList[i].search,
       favorite: !_finalList[i].favorite,
+      open: false,
     );
     print(_finalList[i].favorite);
     notifyListeners();
