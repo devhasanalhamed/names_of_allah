@@ -22,8 +22,13 @@ class _ListOfNamesState extends State<ListOfNames> {
       child: ListView.builder(
         itemCount: widget.names.length,
         itemBuilder: (ctx, index) {
-          return NamesHolder(widget.names[index].name,
-              widget.names[index].meaning, index, widget.names[index].favorite);
+          return NamesHolder(
+            widget.names[index].name,
+            widget.names[index].meaning,
+            index,
+            widget.names[index].favorite,
+            widget.names[index].open,
+          );
         },
       ),
     );
@@ -35,7 +40,9 @@ class NamesHolder extends StatefulWidget {
   final String meaning;
   final int index;
   final bool favorite;
-  const NamesHolder(this.name, this.meaning, this.index, this.favorite,
+  final bool open;
+  const NamesHolder(
+      this.name, this.meaning, this.index, this.favorite, this.open,
       {Key? key})
       : super(key: key);
 
@@ -55,7 +62,7 @@ class _NamesHolder extends State<NamesHolder> {
       child: AnimatedContainer(
         duration: Duration(milliseconds: clicked ? 500 : 100),
         width: double.infinity,
-        height: clicked ? 250 : 60,
+        height: widget.open ? 250 : 60,
         decoration: BoxDecoration(
           border: Border.all(
             color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
@@ -63,7 +70,7 @@ class _NamesHolder extends State<NamesHolder> {
           borderRadius: const BorderRadius.all(
             Radius.circular(12),
           ),
-          color: clicked
+          color: widget.open
               ? Theme.of(context).colorScheme.secondary
               : Theme.of(context).colorScheme.secondary.withOpacity(0.95),
         ),
@@ -102,7 +109,7 @@ class _NamesHolder extends State<NamesHolder> {
                     // ),
                   ],
                 ),
-                if (clicked)
+                if (widget.open)
                   Expanded(
                     child: Container(
                       padding: const EdgeInsets.all(15),
@@ -127,7 +134,7 @@ class _NamesHolder extends State<NamesHolder> {
                     ),
                   ),
                 InteractiveIcons(
-                  clicked: clicked,
+                  clicked: widget.open,
                   name: widget.name,
                   meaning: widget.meaning,
                   favorite: widget.favorite,
