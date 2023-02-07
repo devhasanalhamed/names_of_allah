@@ -683,10 +683,11 @@ class DataProvider with ChangeNotifier {
 
   void nameSelecter(String name) {
     final fav = _finalList.indexWhere((element) => element.name == name);
-    _finalList.forEach((element) {
+    for (var element in _finalList) {
       element.open = false;
-    });
+    }
     _finalList[fav].open = true;
+    print(fav);
   }
 
   void addFavorite(String name) {
