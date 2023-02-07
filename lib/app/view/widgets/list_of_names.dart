@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:names_of_allah/app/controllers/dataProvider.dart';
 import 'package:names_of_allah/app/models/names.dart';
+import 'package:provider/provider.dart';
 
 import 'interactive_icons.dart';
 
@@ -78,6 +80,8 @@ class _NamesHolder extends State<NamesHolder> {
           borderRadius: const BorderRadius.all(Radius.circular(12)),
           onTap: () {
             setState(() {
+              Provider.of<DataProvider>(context, listen: false)
+                  .nameSelecter(widget.name);
               clicked = !clicked;
             });
           },
