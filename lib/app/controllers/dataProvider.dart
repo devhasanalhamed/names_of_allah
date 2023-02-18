@@ -29,7 +29,7 @@ class DataProvider with ChangeNotifier {
           'الذي علا على كل شيء، فمهما تصور العبد عالياً فالله أعلى منه، فله العلو المطلق في ذاته وصفاته',
       search: 'الاعلى الأعلى',
       favorite: false,
-      open: true,
+      open: false,
     ),
     // Names(
     //   name: 'الأكرم ',
