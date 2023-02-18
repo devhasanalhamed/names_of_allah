@@ -79,10 +79,9 @@ class _NamesHolder extends State<NamesHolder> {
         child: InkWell(
           borderRadius: const BorderRadius.all(Radius.circular(12)),
           onTap: () {
-            Provider.of<DataProvider>(context, listen: false)
-                .nameSelecter(widget.name);
-
             setState(() {
+              Provider.of<DataProvider>(context, listen: false)
+                  .nameSelecter(widget.name);
               clicked = !clicked;
             });
           },
