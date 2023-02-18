@@ -102,6 +102,16 @@ class _NamesHolder extends State<NamesHolder> {
                         // fontFamily: 'Solo',
                       ),
                     ),
+                    Container(
+                      child: Center(child: Text('${widget.index + 1}')),
+                      width: 35,
+                      height: 35,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          color: Theme.of(context).colorScheme.primary),
+                      margin: EdgeInsets.symmetric(horizontal: 5),
+                      padding: EdgeInsets.symmetric(horizontal: 5),
+                    ),
                     // SizedBox(
                     //   height: 50,
                     //   width: 110,
