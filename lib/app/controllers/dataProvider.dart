@@ -23,13 +23,14 @@ class DataProvider with ChangeNotifier {
       favorite: true,
       open: true,
     ),
-    // Names(
-    //   name: 'الأعلى',
-    //   meaning:
-    //       'الذي علا على كل شيء، فمهما تصور العبد عالياً فالله أعلى منه، فله العلو المطلق في ذاته وصفاته',
-    //   search: 'الاعلى الأعلى',
-    //   favorite: false,
-    // ),
+    Names(
+      name: 'الأعلى',
+      meaning:
+          'الذي علا على كل شيء، فمهما تصور العبد عالياً فالله أعلى منه، فله العلو المطلق في ذاته وصفاته',
+      search: 'الاعلى الأعلى',
+      favorite: false,
+      open: true,
+    ),
     // Names(
     //   name: 'الأكرم ',
     //   meaning: 'الذي لا يوازي كرمه كرم، ولا يعادله في كرمه كريم',
