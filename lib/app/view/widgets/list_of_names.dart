@@ -103,7 +103,11 @@ class _NamesHolder extends State<NamesHolder> {
                       ),
                     ),
                     Container(
-                      child: Center(child: Text('${widget.index + 1}')),
+                      child: Center(
+                          child: Text(
+                        '${widget.index + 1}',
+                        style: TextStyle(color: Colors.white),
+                      )),
                       width: 35,
                       height: 35,
                       decoration: BoxDecoration(
