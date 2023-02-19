@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:names_of_allah/app/controllers/dataProvider.dart';
 import 'package:names_of_allah/app/models/names.dart';
 import 'package:provider/provider.dart';
@@ -25,11 +24,7 @@ class _ListOfNamesState extends State<ListOfNames> {
         itemCount: widget.names.length,
         itemBuilder: (ctx, index) {
           return NamesHolder(
-            widget.names[index].name,
-            widget.names[index].meaning,
             index,
-            widget.names[index].favorite,
-            widget.names[index].open,
           );
         },
       ),
@@ -38,33 +33,26 @@ class _ListOfNamesState extends State<ListOfNames> {
 }
 
 class NamesHolder extends StatefulWidget {
-  final String name;
-  final String meaning;
   final int index;
-  final bool favorite;
-  final bool open;
-  const NamesHolder(
-      this.name, this.meaning, this.index, this.favorite, this.open,
-      {Key? key})
-      : super(key: key);
+  const NamesHolder(this.index, {Key? key}) : super(key: key);
 
   @override
   State<NamesHolder> createState() => _NamesHolder();
 }
 
 class _NamesHolder extends State<NamesHolder> {
-  var clicked = false;
   @override
   Widget build(BuildContext context) {
+    final _name = Provider.of<DataProvider>(context).returnName(widget.index);
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 20,
         vertical: 10,
       ),
       child: AnimatedContainer(
-        duration: Duration(milliseconds: clicked ? 500 : 100),
+        duration: const Duration(milliseconds: 400),
         width: double.infinity,
-        height: widget.open ? 250 : 60,
+        height: _name.open ? 250 : 60,
         decoration: BoxDecoration(
           border: Border.all(
             color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
@@ -72,22 +60,20 @@ class _NamesHolder extends State<NamesHolder> {
           borderRadius: const BorderRadius.all(
             Radius.circular(12),
           ),
-          color: widget.open
+          color: _name.open
               ? Theme.of(context).colorScheme.secondary
               : Theme.of(context).colorScheme.secondary.withOpacity(0.95),
         ),
         child: InkWell(
           borderRadius: const BorderRadius.all(Radius.circular(12)),
           onTap: () {
-            setState(() {
-              Provider.of<DataProvider>(context, listen: false)
-                  .nameSelecter(widget.name);
-              clicked = !clicked;
-            });
+            Provider.of<DataProvider>(context, listen: false)
+                .nameSelecter(_name.name);
           },
           child: Padding(
             padding: const EdgeInsets.only(
               right: 30,
+              left: 20,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -96,38 +82,27 @@ class _NamesHolder extends State<NamesHolder> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      widget.name,
+                      _name.name,
                       style: const TextStyle(
                         fontSize: 24,
-                        // fontFamily: 'Solo',
                       ),
                     ),
                     Container(
                       child: Center(
                           child: Text(
                         '${widget.index + 1}',
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       )),
                       width: 35,
                       height: 35,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(20)),
                           color: Theme.of(context).colorScheme.primary),
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      padding: EdgeInsets.symmetric(horizontal: 5),
                     ),
-                    // SizedBox(
-                    //   height: 50,
-                    //   width: 110,
-                    //   child: SvgPicture.asset(
-                    //     'assets/images/Asset.svg',
-                    //     color: Theme.of(context).colorScheme.primary,
-                    //     semanticsLabel: 'islamic',
-                    //   ),
-                    // ),
                   ],
                 ),
-                if (widget.open)
+                if (_name.open)
                   Expanded(
                     child: Container(
                       padding: const EdgeInsets.all(15),
@@ -144,7 +119,7 @@ class _NamesHolder extends State<NamesHolder> {
                       child: ListView(
                         children: [
                           Text(
-                            widget.meaning,
+                            _name.meaning,
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
                         ],
@@ -152,10 +127,10 @@ class _NamesHolder extends State<NamesHolder> {
                     ),
                   ),
                 InteractiveIcons(
-                  clicked: widget.open,
-                  name: widget.name,
-                  meaning: widget.meaning,
-                  favorite: widget.favorite,
+                  clicked: _name.open,
+                  name: _name.name,
+                  meaning: _name.meaning,
+                  favorite: _name.favorite,
                 ),
               ],
             ),
