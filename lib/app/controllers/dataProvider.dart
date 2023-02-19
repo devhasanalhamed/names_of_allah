@@ -689,6 +689,7 @@ class DataProvider with ChangeNotifier {
     }
     _finalList[fav].open = true;
     print(fav);
+    notifyListeners();
   }
 
   void addFavorite(String name) {
@@ -700,8 +701,12 @@ class DataProvider with ChangeNotifier {
       favorite: !_finalList[i].favorite,
       open: false,
     );
-    print(_finalList[i].favorite);
     notifyListeners();
+  }
+
+  Names returnName(int index) {
+    final result = _finalList[index];
+    return result;
   }
 
   Future<void> copyToClipboard(context, name, data) async {
