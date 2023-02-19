@@ -70,15 +70,15 @@ class _NamesHolder extends State<NamesHolder> {
             Provider.of<DataProvider>(context, listen: false)
                 .nameSelecter(_name.name);
           },
-          child: Padding(
-            padding: const EdgeInsets.only(
-              right: 30,
-              left: 20,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                  right: 30,
+                  left: 20,
+                ),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -102,38 +102,41 @@ class _NamesHolder extends State<NamesHolder> {
                     ),
                   ],
                 ),
-                if (_name.open)
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.all(15),
-                      margin: const EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(12),
+              ),
+              if (_name.open)
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.all(15),
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 5,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(12),
+                      ),
+                      color: Theme.of(context)
+                          .colorScheme
+                          .primary
+                          .withOpacity(0.1),
+                    ),
+                    child: ListView(
+                      children: [
+                        Text(
+                          _name.meaning,
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
-                        color: Theme.of(context)
-                            .colorScheme
-                            .primary
-                            .withOpacity(0.1),
-                      ),
-                      child: ListView(
-                        children: [
-                          Text(
-                            _name.meaning,
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
-                        ],
-                      ),
+                      ],
                     ),
                   ),
-                InteractiveIcons(
-                  clicked: _name.open,
-                  name: _name.name,
-                  meaning: _name.meaning,
-                  favorite: _name.favorite,
                 ),
-              ],
-            ),
+              InteractiveIcons(
+                clicked: _name.open,
+                name: _name.name,
+                meaning: _name.meaning,
+                favorite: _name.favorite,
+              ),
+            ],
           ),
         ),
       ),
