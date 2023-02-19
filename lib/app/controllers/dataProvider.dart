@@ -21,7 +21,7 @@ class DataProvider with ChangeNotifier {
           'الفرد، المتفرد بصفات الكمال، الذي لانظير له ولامثيل له في ذاته ولا في صفاته وأفعاله وألوهيته',
       search: 'الاحد الأحد',
       favorite: true,
-      open: true,
+      open: false,
     ),
     Names(
       name: 'الأعلى',
@@ -682,13 +682,12 @@ class DataProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void nameSelecter(String name) {
-    final fav = _finalList.indexWhere((element) => element.name == name);
+  void nameSelecter(int index) {
+    final oldState = _finalList[index].open;
     for (var element in _finalList) {
       element.open = false;
     }
-    _finalList[fav].open = true;
-    print(fav);
+    _finalList[index].open = !oldState;
     notifyListeners();
   }
 

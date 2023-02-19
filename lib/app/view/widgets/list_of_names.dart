@@ -68,7 +68,7 @@ class _NamesHolder extends State<NamesHolder> {
           borderRadius: const BorderRadius.all(Radius.circular(12)),
           onTap: () {
             Provider.of<DataProvider>(context, listen: false)
-                .nameSelecter(_name.name);
+                .nameSelecter(widget.index);
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
