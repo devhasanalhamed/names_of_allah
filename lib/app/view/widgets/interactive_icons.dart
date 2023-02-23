@@ -9,12 +9,14 @@ class InteractiveIcons extends StatelessWidget {
     required this.name,
     required this.meaning,
     required this.favorite,
+    required this.shareIt,
   }) : super(key: key);
 
   final bool clicked;
   final String name;
   final String meaning;
   final bool favorite;
+  final VoidCallback shareIt;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class InteractiveIcons extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: shareIt,
                   icon: const Icon(Icons.share),
                 ),
                 IconButton(
