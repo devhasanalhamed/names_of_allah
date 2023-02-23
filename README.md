@@ -2,6 +2,8 @@
 
 Flutter project provide an easy way to learn and share Names Of Allah from reliable source.
 
+<img align='right' width='fit-width' src='https://user-images.githubusercontent.com/81860602/220918266-b6f79672-3be7-4924-b368-9be6bf044288.png'>
+
 ![Screenshot_1677158124_google-pixel4-clearlywhite-portrait](https://user-images.githubusercontent.com/81860602/220918266-b6f79672-3be7-4924-b368-9be6bf044288.png)
 
 ![Screenshot_1677158126_google-pixel4-clearlywhite-portrait](https://user-images.githubusercontent.com/81860602/220918317-3c34620f-cf9f-442b-842a-57cac9b1e04c.png)
