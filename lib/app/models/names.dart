@@ -1,4 +1,5 @@
 class Names {
+  int id;
   String name;
   String meaning;
   String search;
@@ -6,6 +7,7 @@ class Names {
   bool open;
 
   Names({
+    required this.id,
     required this.name,
     required this.meaning,
     required this.search,
