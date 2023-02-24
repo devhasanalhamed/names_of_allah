@@ -9,6 +9,7 @@ class DataProvider with ChangeNotifier {
   static final List<Names> _namesOfAllah = [
 //الأسماء الواردة في القران
     Names(
+      id: 1,
       name: 'الله',
       meaning: 'هو الله الإله المألوه المعبود بحق',
       search: 'الله',
@@ -16,6 +17,7 @@ class DataProvider with ChangeNotifier {
       open: false,
     ),
     Names(
+      id: 2,
       name: 'الأحد',
       meaning:
           'الفرد، المتفرد بصفات الكمال، الذي لانظير له ولامثيل له في ذاته ولا في صفاته وأفعاله وألوهيته',
@@ -24,6 +26,7 @@ class DataProvider with ChangeNotifier {
       open: false,
     ),
     Names(
+      id: 3,
       name: 'الأعلى',
       meaning:
           'الذي علا على كل شيء، فمهما تصور العبد عالياً فالله أعلى منه، فله العلو المطلق في ذاته وصفاته',
@@ -692,13 +695,14 @@ class DataProvider with ChangeNotifier {
   }
 
   void addFavorite(String name) {
-    final i = _finalList.indexWhere((element) => element.name == name);
-    _finalList[i] = Names(
-      name: _finalList[i].name,
-      meaning: _finalList[i].meaning,
-      search: _finalList[i].search,
-      favorite: !_finalList[i].favorite,
-      open: false,
+    final i = _namesOfAllah.indexWhere((element) => element.name == name);
+    _namesOfAllah[i] = Names(
+      id: _namesOfAllah[i].id,
+      name: _namesOfAllah[i].name,
+      meaning: _namesOfAllah[i].meaning,
+      search: _namesOfAllah[i].search,
+      favorite: !_namesOfAllah[i].favorite,
+      open: true,
     );
     notifyListeners();
   }
