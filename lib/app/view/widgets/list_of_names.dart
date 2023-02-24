@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +13,8 @@ import 'package:share_plus/share_plus.dart';
 import 'interactive_icons.dart';
 
 class ListOfNames extends StatefulWidget {
-  const ListOfNames(this.names, this.function, {Key? key}) : super(key: key);
-
-  final Function function;
   final List<Names> names;
+  const ListOfNames(this.names, {Key? key}) : super(key: key);
 
   @override
   State<ListOfNames> createState() => _ListOfNamesState();
@@ -50,9 +49,90 @@ class NamesHolder extends StatefulWidget {
 class _NamesHolder extends State<NamesHolder> {
   final ScreenshotController _screenshotController = ScreenshotController();
   late Uint8List _imageFile;
-  void shareIt() async {
-    final imageFile = await _screenshotController.capture();
-    Share.shareXFiles([XFile.fromData(imageFile!)]);
+
+  void shareIt(Names name) async {
+    final imageFile = await _screenshotController.captureFromWidget(
+      Directionality(
+        textDirection: TextDirection.rtl,
+        child: Container(
+          width: double.infinity,
+          height: 250,
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+            ),
+            borderRadius: const BorderRadius.all(
+              Radius.circular(12),
+            ),
+            color: Theme.of(context).colorScheme.secondary,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                  right: 30,
+                  left: 20,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      name.name,
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontFamily: 'NotoKufiArabic',
+                      ),
+                    ),
+                    Container(
+                      child: const Icon(
+                        Icons.favorite,
+                        color: Colors.white,
+                      ),
+                      width: 35,
+                      height: 35,
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(20)),
+                          color: Theme.of(context).colorScheme.primary),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.all(15),
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 5,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(12),
+                    ),
+                    color:
+                        Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                  ),
+                  child: ListView(
+                    children: [
+                      Text(
+                        name.meaning,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Text('تمت مشاركته عبر تطبيق حُسنى 💖'),
+            ],
+          ),
+        ),
+      ),
+    );
+    final directory = await getApplicationSupportDirectory();
+    final imagePath = File('${directory.path}/images.png');
+    await imagePath.writeAsBytes(imageFile);
+    Share.shareXFiles([XFile(imagePath.path)]);
   }
 
   @override
@@ -151,7 +231,7 @@ class _NamesHolder extends State<NamesHolder> {
                   name: _name.name,
                   meaning: _name.meaning,
                   favorite: _name.favorite,
-                  shareIt: shareIt,
+                  shareIt: () => shareIt(_name),
                 ),
               ],
             ),
