@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       create: (ctx) => ThemeManager(),
       child: Consumer<ThemeManager>(
         builder: (context, theme, child) => MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'أسماء الله الحُسنى',
           theme: getLightThemeData(),
           darkTheme: getDarkThemeData(),
