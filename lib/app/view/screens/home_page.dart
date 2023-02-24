@@ -16,35 +16,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late String _nameHome;
-  late String _meaningHome;
-  var _viewCard = false;
 
   @override
   void initState() {
     Provider.of<ThemeManager>(context, listen: false).getPrefs();
     super.initState();
   }
-
-  void clearName() {
-    setState(() {
-      _nameHome = '';
-      _meaningHome = '';
-      _viewCard = false;
-    });
-  }
-
-  void pickName(String name, String meaning) {
-    setState(() {
-      _nameHome = name;
-      _meaningHome = meaning;
-      _viewCard = true;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    final sizeHeight = MediaQuery.of(context).size.height;
     final _names =
         Provider.of<DataProvider>(context, listen: true).namesOfAllah;
     return Scaffold(
@@ -63,7 +42,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Column(
             children: [
-              ListOfNames(_names, pickName),
+              ListOfNames(_names),
             ],
           ),
         ],
