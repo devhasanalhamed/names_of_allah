@@ -35,6 +35,11 @@ class InteractiveIcons extends StatelessWidget {
                   onPressed: () {
                     Provider.of<DataProvider>(context, listen: false)
                         .addFavorite(name);
+                    Provider.of<DataProvider>(context, listen: false)
+                        .showSnakBar(
+                      context,
+                      favorite ? 'إزالة من المفضلة' : 'إضافة إلى المفضلة',
+                    );
                   },
                   icon: favorite
                       ? const Icon(Icons.favorite)
@@ -43,7 +48,8 @@ class InteractiveIcons extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    DataProvider().copyToClipboard(context, name, meaning);
+                    Provider.of<DataProvider>(context, listen: false)
+                        .copyToClipboard(context, name, meaning);
                   },
                   icon: const Icon(Icons.copy),
                 ),
