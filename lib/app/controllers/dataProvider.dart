@@ -713,10 +713,28 @@ class DataProvider with ChangeNotifier {
   }
 
   Future<void> copyToClipboard(context, name, data) async {
-    FlutterClipboard.copy('{ $name } ومعناه :  $data').then(
-      (value) => ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('تم النسخ إلى الحافظة'),
+    FlutterClipboard.copy('{ $name } ومعناه :  $data')
+        .then((value) => showSnakBar(context, 'تم النسخ إلى الحافظة'));
+  }
+
+  ScaffoldFeatureController showSnakBar(BuildContext context, String msg) {
+    ScaffoldMessenger.of(context).clearSnackBars();
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          msg,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+        ),
+        key: UniqueKey(),
+        duration: const Duration(milliseconds: 500),
+        backgroundColor: Theme.of(context).colorScheme.secondary,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(12))
         ),
       ),
     );
