@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:names_of_allah/app/controllers/dataProvider.dart';
-import 'dart:math';
 
 import 'package:provider/provider.dart';
 
