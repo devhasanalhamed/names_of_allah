@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:names_of_allah/core/colors/light_theme_colors.dart';
 
-//TODO do the dark theme data
 
 ThemeData getLightThemeData() => ThemeData(
       primaryColor: ColorsLight.primaryColor,
