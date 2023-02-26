@@ -1,5 +1,3 @@
-//TODO complete the data with corrections
-
 import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import '../models/names.dart';
