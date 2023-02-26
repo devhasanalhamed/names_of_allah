@@ -34,31 +34,39 @@ class DataProvider with ChangeNotifier {
       favorite: false,
       open: false,
     ),
-    // Names(
-    //   name: 'الأكرم ',
-    //   meaning: 'الذي لا يوازي كرمه كرم، ولا يعادله في كرمه كريم',
-    //   search: 'الاكرم الأكرم',
-    //   favorite: false,
-    // ),
-    // Names(
-    //   name: 'الإله ',
-    //   meaning: 'المألوه المعبود ، المستحق للألوهية والعبادة وحده',
-    //   search: 'الاله الإله',
-    //   favorite: false,
-    // ),
-    // Names(
-    //   name: 'الأول',
-    //   meaning: 'الذي ليس لوجوده بداية، فكل ما سواه كائن بعد أن لم يكن .',
-    //   search: 'الاول الأول',
-    //   favorite: false,
-    // ),
-    // Names(
-    //   name: 'الآخر',
-    //   meaning:
-    //       'الذي ليس لوجوده نهاية، بل له الخلود المطلق، والبقاء الدائم، لا يفنى ولا يبيد ',
-    //   search: 'الاخر الآخر',
-    //   favorite: false,
-    // ),
+    Names(
+      id: 4,
+      name: 'الأكرم ',
+      meaning: 'الذي لا يوازي كرمه كرم، ولا يعادله في كرمه كريم',
+      search: 'الاكرم الأكرم',
+      favorite: false,
+      open: false,
+    ),
+    Names(
+      id: 5,
+      name: 'الإله ',
+      meaning: 'المألوه المعبود ، المستحق للألوهية والعبادة وحده',
+      search: 'الاله الإله',
+      favorite: false,
+      open: false,
+    ),
+    Names(
+      id: 6,
+      name: 'الأول',
+      meaning: 'الذي ليس لوجوده بداية، فكل ما سواه كائن بعد أن لم يكن .',
+      search: 'الاول الأول',
+      favorite: false,
+      open: false,
+    ),
+    Names(
+      id: 7,
+      name: 'الآخر',
+      meaning:
+          'الذي ليس لوجوده نهاية، بل له الخلود المطلق، والبقاء الدائم، لا يفنى ولا يبيد ',
+      search: 'الاخر الآخر',
+      favorite: false,
+      open: false,
+    ),
     // Names(
     //   name: 'الظاهر',
     //   meaning:
@@ -734,8 +742,7 @@ class DataProvider with ChangeNotifier {
         duration: const Duration(milliseconds: 500),
         backgroundColor: Theme.of(context).colorScheme.secondary,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(12))
-        ),
+            borderRadius: BorderRadius.all(Radius.circular(12))),
       ),
     );
   }
