@@ -30,6 +30,7 @@ class _ListOfNamesState extends State<ListOfNames> {
         itemBuilder: (ctx, index) {
           return NamesHolder(
             index,
+            widget.names.length,
             key: UniqueKey(),
           );
         },
@@ -40,7 +41,8 @@ class _ListOfNamesState extends State<ListOfNames> {
 
 class NamesHolder extends StatefulWidget {
   final int index;
-  const NamesHolder(this.index, {Key? key}) : super(key: key);
+  final int lastItem;
+  const NamesHolder(this.index,this.lastItem, {Key? key}) : super(key: key);
 
   @override
   State<NamesHolder> createState() => _NamesHolder();
@@ -63,9 +65,11 @@ class _NamesHolder extends State<NamesHolder> {
   Widget build(BuildContext context) {
     final _name = Provider.of<DataProvider>(context).returnName(widget.index);
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 20,
-        vertical: 10,
+      padding: EdgeInsets.only(
+        left: 20,
+        right: 20,
+        top: 10,
+        bottom: _name.id == widget.lastItem ? 75: 10,
       ),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 400),
