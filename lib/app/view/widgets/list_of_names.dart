@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:names_of_allah/app/controllers/dataProvider.dart';
@@ -69,7 +70,7 @@ class _NamesHolder extends State<NamesHolder> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 400),
         width: double.infinity,
-        height: _name.open ? 250 : 60,
+        height: _name.open ? max((_name.meaning.length / 10) * 30, 250) : 60,
         decoration: BoxDecoration(
           border: Border.all(
             color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
@@ -137,7 +138,7 @@ class _NamesHolder extends State<NamesHolder> {
                           .primary
                           .withOpacity(0.1),
                     ),
-                    child: ListView(
+                    child: Column(
                       children: [
                         Text(
                           _name.meaning,
