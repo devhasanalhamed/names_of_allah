@@ -50,19 +50,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-class MyFloatingWidget extends StatelessWidget {
-  const MyFloatingWidget({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: () {
-        //TODO fix the dialog
-      },
-      child: const Icon(Icons.question_mark),
-    );
-  }
-}
