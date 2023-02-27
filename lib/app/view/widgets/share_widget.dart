@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class ShareWidget extends StatefulWidget {
@@ -16,7 +18,7 @@ class _ShareWidgetState extends State<ShareWidget> {
       textDirection: TextDirection.rtl,
       child: Container(
         width: double.infinity,
-        height: 250,
+        height: max((widget.name.length / 10) * 15, 250),
         decoration: BoxDecoration(
           border: Border.all(
             color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
@@ -82,7 +84,7 @@ class _ShareWidgetState extends State<ShareWidget> {
                 ),
               ),
             ),
-            Text('تمت مشاركته عبر تطبيق حُسنى 💖'),
+            const Text('تمت مشاركته عبر تطبيق حُسنى 💖'),
           ],
         ),
       ),
