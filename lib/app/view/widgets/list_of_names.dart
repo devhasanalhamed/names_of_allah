@@ -129,6 +129,7 @@ class _NamesHolder extends State<NamesHolder> {
                       horizontal: 10,
                       vertical: 5,
                     ),
+                    width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: const BorderRadius.all(
                         Radius.circular(12),
