@@ -65,76 +65,99 @@ class DataProvider with ChangeNotifier {
       favorite: false,
       open: false,
     ),
-    // Names(
-    //   name: 'الظاهر',
-    //   meaning:
-    //       'الذي استعلى على خلقه بذاته، واستعلى عليهم بحججه وآياته، وقهرهم بقوته وسلطانه ',
-    //   search: 'الظاهر',
-    //   favorite: true,
-    // ),
-    // Names(
-    //   name: 'الباطن',
-    //   meaning:
-    //       ' المحتجب عن خلقه فلا يرى في الدنيا، وإنما يُعلم وجوده بدلائل خلقه وآثار صنعه.',
-    //   search: 'الباطن',
-    //   favorite: false,
-    // ),
-    // Names(
-    //   name: 'البارئ ',
-    //   meaning: 'وهو في معنى الخالق إلا أنه يدل على مطلق الخلق من غير تقدير .',
-    //   search: 'البارئ الباري البارء',
-    //   favorite: false,
-    // ),
-    // Names(
-    //   name: 'البر',
-    //   meaning: 'العطوف على عباده المحسن إليهم، الذي عم بره وإحسانه جميع خلقه',
-    //   search: 'البر',
-    //   favorite: false,
-    // ),
-    // Names(
-    //   name: 'البصير',
-    //   meaning: 'الذي يرى المبصرات، لا يخفى عليه خافية في الأرض ولا في السماء',
-    //   search: 'البصير',
-    //   favorite: false,
-    // ),
-    // Names(
-    //   name: 'التواب ',
-    //   meaning: 'الذي يقبل توبة عباده، وكلما تكررت التوبة تكرر القبول',
-    //   search: 'التواب',
-    //   favorite: false,
-    // ),
-    // Names(
-    //   name: 'الجبار',
-    //   meaning:
-    //       'مأخوذ من الجبر والقهر والتعالي فهو سبحانه: المستعلي المتعاظم الذي لا يخرج أحد عن أمره الكوني وسلطانه القدري، فهو الذي يحيي ويميت، ويرزق ويفقر، ويعز ويذل، ويفعل ما يشاء في خلقه لا راد لأمره، ولا ناقض لقضائه',
-    //   search: 'الجبار',
-    //   favorite: false,
-    // ),
-    // Names(
-    //   name: 'الحافظ ',
-    //   meaning: 'الصائن عبده عن أسباب الهلكة في أمور دينه ودنياه ',
-    //   search: 'الحافظ',
-    //   favorite: false,
-    // ),
-    // Names(
-    //   name: 'الحسيب',
-    //   meaning:
-    //       'أنه الشريف الذي فاق شرفه كل شرف، والعالم الذي يعلم مقادير الأشياء وأعدادها، والكافي الذي يحفظ ويرزق',
-    //   search: 'الحسيب',
-    //   favorite: false,
-    // ),
-    // Names(
-    //   name: 'الحفيظ ',
-    //   meaning:
-    //       'الحافظ، فهو الذي يحفظ السماء أن تقع على الأرض، ويحفظ الأرض أن تهوي، ويحفظ الكواكب أن تصطدم ببعضها، ويحفظ للحياة نظامها، ويحفظ على عباده ما عملوه من خير وشر وطاعة ومعصية',
-    //   search: 'الحفيظ',
-    //   favorite: false,
-    // ),
-    // // Names(
-    // //     name: 'الحفي',
-    // //     meaning:
-    // //         'الذي يعود عبده على الإجابة إذا دعاه، فهو لطيف به سبحانه وتعالى، وفسره بعض أهل العلم فقالوا البر اللطيف بعباده',
-    // //     search: 'الحفي'),
+    Names(
+      id: 8,
+      name: 'الظاهر',
+      meaning:
+          'الذي استعلى على خلقه بذاته، واستعلى عليهم بحججه وآياته، وقهرهم بقوته وسلطانه ',
+      search: 'الظاهر',
+      favorite: true,
+      open: false,
+    ),
+    Names(
+        id: 9,
+        name: 'الباطن',
+        meaning:
+            ' المحتجب عن خلقه فلا يرى في الدنيا، وإنما يُعلم وجوده بدلائل خلقه وآثار صنعه.',
+        search: 'الباطن',
+        favorite: false,
+        open: false),
+    Names(
+      id: 10,
+      name: 'البارئ ',
+      meaning: 'وهو في معنى الخالق إلا أنه يدل على مطلق الخلق من غير تقدير .',
+      search: 'البارئ الباري البارء',
+      favorite: false,
+      open: false,
+    ),
+    Names(
+      id: 11,
+      name: 'البر',
+      meaning: 'العطوف على عباده المحسن إليهم، الذي عم بره وإحسانه جميع خلقه',
+      search: 'البر',
+      favorite: false,
+      open: false,
+    ),
+    Names(
+      id: 12,
+      name: 'البصير',
+      meaning: 'الذي يرى المبصرات، لا يخفى عليه خافية في الأرض ولا في السماء',
+      search: 'البصير',
+      favorite: false,
+      open: false,
+    ),
+    Names(
+      id: 13,
+      name: 'التواب ',
+      meaning: 'الذي يقبل توبة عباده، وكلما تكررت التوبة تكرر القبول',
+      search: 'التواب',
+      favorite: false,
+      open: false,
+    ),
+    Names(
+      id: 14,
+      name: 'الجبار',
+      meaning:
+          'مأخوذ من الجبر والقهر والتعالي فهو سبحانه: المستعلي المتعاظم الذي لا يخرج أحد عن أمره الكوني وسلطانه القدري، فهو الذي يحيي ويميت، ويرزق ويفقر، ويعز ويذل، ويفعل ما يشاء في خلقه لا راد لأمره، ولا ناقض لقضائه',
+      search: 'الجبار',
+      favorite: false,
+      open: false,
+    ),
+    Names(
+      id: 15,
+      name: 'الحافظ ',
+      meaning: 'الصائن عبده عن أسباب الهلكة في أمور دينه ودنياه ',
+      search: 'الحافظ',
+      favorite: false,
+      open: false,
+    ),
+    Names(
+      id: 16,
+      name: 'الحسيب',
+      meaning:
+          'أنه الشريف الذي فاق شرفه كل شرف، والعالم الذي يعلم مقادير الأشياء وأعدادها، والكافي الذي يحفظ ويرزق',
+      search: 'الحسيب',
+      favorite: false,
+      open: false,
+    ),
+    Names(
+      id: 17,
+      name: 'الحفيظ ',
+      meaning:
+          'الحافظ، فهو الذي يحفظ السماء أن تقع على الأرض، ويحفظ الأرض أن تهوي، ويحفظ الكواكب أن تصطدم ببعضها، ويحفظ للحياة نظامها، ويحفظ على عباده ما عملوه من خير وشر وطاعة ومعصية',
+      search: 'الحفيظ',
+      favorite: false,
+      open: false,
+    ),
+    Names(
+      id: 18,
+      name: 'الحفي',
+      meaning:
+          'الذي يعود عبده على الإجابة إذا دعاه، فهو لطيف به سبحانه وتعالى، وفسره بعض أهل العلم فقالوا البر اللطيف بعباده',
+      search: 'الحفي',
+      favorite: false,
+      open: false,
+    ),
     // Names(
     //   name: 'الحق',
     //   meaning:
@@ -739,8 +762,15 @@ class DataProvider with ChangeNotifier {
         key: UniqueKey(),
         duration: const Duration(milliseconds: 500),
         backgroundColor: Theme.of(context).colorScheme.secondary,
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(12))),
+        shape: RoundedRectangleBorder(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(12),
+            topRight: Radius.circular(12),
+          ),
+          side: BorderSide(
+            color: Theme.of(context).colorScheme.primary,
+          ),
+        ),
       ),
     );
   }
