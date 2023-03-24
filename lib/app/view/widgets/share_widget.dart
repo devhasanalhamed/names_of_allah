@@ -21,12 +21,12 @@ class _ShareWidgetState extends State<ShareWidget> {
         height: max((widget.name.length / 10) * 15, 250),
         decoration: BoxDecoration(
           border: Border.all(
-            color: Color(0xFF192837),
+            color: const Color(0xFF192837),
           ),
           borderRadius: const BorderRadius.all(
             Radius.circular(12),
           ),
-          color: Theme.of(context).colorScheme.secondary,
+          color: const Color(0xFF192837),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -53,9 +53,9 @@ class _ShareWidgetState extends State<ShareWidget> {
                     ),
                     width: 35,
                     height: 35,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(20)),
-                      color: Theme.of(context).colorScheme.primary,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      color: Color(0xFF289BAF),
                     ),
                   ),
                 ],
@@ -72,7 +72,7 @@ class _ShareWidgetState extends State<ShareWidget> {
                   borderRadius: const BorderRadius.all(
                     Radius.circular(12),
                   ),
-                  color: Color(0xFF289BAF),
+                  color: const Color(0xFF289BAF).withOpacity(0.1),
                 ),
                 child: ListView(
                   children: [
