@@ -16,19 +16,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   void initState() {
     Provider.of<ThemeManager>(context, listen: false).getPrefs();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     final _names =
         Provider.of<DataProvider>(context, listen: true).namesOfAllah;
     return Scaffold(
       floatingActionButton: const MyFABWidget(),
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: const MyAppBar(),
       body: Stack(
         children: [
