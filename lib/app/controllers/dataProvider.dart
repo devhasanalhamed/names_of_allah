@@ -714,7 +714,7 @@ class DataProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void nameSelecter(int index) {
+  void nameSelector(int index) {
     final oldState = _finalList[index].open;
     for (var element in _finalList) {
       element.open = false;
@@ -743,10 +743,10 @@ class DataProvider with ChangeNotifier {
 
   Future<void> copyToClipboard(context, name, data) async {
     FlutterClipboard.copy('{ $name } ومعناه :  $data')
-        .then((value) => showSnakBar(context, 'تم النسخ إلى الحافظة'));
+        .then((value) => showSnackBar(context, 'تم النسخ إلى الحافظة'));
   }
 
-  ScaffoldFeatureController showSnakBar(BuildContext context, String msg) {
+  ScaffoldFeatureController showSnackBar(BuildContext context, String msg) {
     ScaffoldMessenger.of(context).clearSnackBars();
     return ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
