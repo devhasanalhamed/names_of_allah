@@ -81,7 +81,7 @@ class _NameCard extends State<NameCard> {
           );
         },
         child: AnimatedSize(
-          duration: const Duration(milliseconds: 400),
+          duration: Duration(milliseconds: selected ? 100 : 400),
           alignment: Alignment.topCenter,
           child: Container(
             padding: const EdgeInsets.symmetric(
