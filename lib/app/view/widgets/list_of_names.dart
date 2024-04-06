@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:names_of_allah/app/controllers/dataProvider.dart';
@@ -14,7 +13,7 @@ import 'interactive_icons.dart';
 
 class ListOfNames extends StatefulWidget {
   final List<Names> names;
-  const ListOfNames(this.names, {Key? key}) : super(key: key);
+  const ListOfNames(this.names, {super.key});
 
   @override
   State<ListOfNames> createState() => _ListOfNamesState();
@@ -28,7 +27,7 @@ class _ListOfNamesState extends State<ListOfNames> {
       child: ListView.builder(
         itemCount: widget.names.length,
         itemBuilder: (ctx, index) {
-          return NamesHolder(
+          return NameCard(
             index,
             widget.names.length,
             key: UniqueKey(),
@@ -39,20 +38,22 @@ class _ListOfNamesState extends State<ListOfNames> {
   }
 }
 
-class NamesHolder extends StatefulWidget {
+class NameCard extends StatefulWidget {
   final int index;
   final int lastItem;
-  const NamesHolder(this.index,this.lastItem, {Key? key}) : super(key: key);
+  const NameCard(this.index, this.lastItem, {super.key});
 
   @override
-  State<NamesHolder> createState() => _NamesHolder();
+  State<NameCard> createState() => _NameCard();
 }
 
-class _NamesHolder extends State<NamesHolder> {
+class _NameCard extends State<NameCard> {
   final ScreenshotController _screenshotController = ScreenshotController();
+  bool selected = false;
 
   void shareIt(Names name) async {
-    Provider.of<DataProvider>(context,listen: false).showSnakBar(context, 'المشاركة من خلال');
+    Provider.of<DataProvider>(context, listen: false)
+        .showSnackBar(context, 'المشاركة من خلال');
     final imageFile = await _screenshotController
         .captureFromWidget(ShareWidget(name.name, name.meaning));
     final directory = await getApplicationSupportDirectory();
@@ -63,103 +64,100 @@ class _NamesHolder extends State<NamesHolder> {
 
   @override
   Widget build(BuildContext context) {
-    final _name = Provider.of<DataProvider>(context).returnName(widget.index);
+    final name = Provider.of<DataProvider>(context).returnName(widget.index);
     return Padding(
       padding: EdgeInsets.only(
         left: 20,
         right: 20,
         top: 10,
-        bottom: _name.id == widget.lastItem ? 75: 10,
+        // Extra bottom to ensure not the last name not hided by floating action button
+        bottom: name.id == widget.lastItem ? 75 : 10,
       ),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 400),
-        width: double.infinity,
-        height: _name.open ? max((_name.meaning.length / 10) * 30, 250) : 60,
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+      child: InkWell(
+        borderRadius: const BorderRadius.all(Radius.circular(12)),
+        onTap: () {
+          setState(
+            () => selected = !selected,
+          );
+        },
+        child: AnimatedContainer(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16.0,
+            vertical: 16.0,
           ),
-          borderRadius: const BorderRadius.all(
-            Radius.circular(12),
+          duration: Duration(milliseconds: selected ? 400 : 250),
+          constraints: const BoxConstraints(minHeight: 60, maxHeight: 5000),
+          width: double.infinity,
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+            ),
+            borderRadius: const BorderRadius.all(
+              Radius.circular(12),
+            ),
+            color: name.open
+                ? Theme.of(context).colorScheme.secondary
+                : Theme.of(context).colorScheme.secondary.withOpacity(0.95),
           ),
-          color: _name.open
-              ? Theme.of(context).colorScheme.secondary
-              : Theme.of(context).colorScheme.secondary.withOpacity(0.95),
-        ),
-        child: InkWell(
-          borderRadius: const BorderRadius.all(Radius.circular(12)),
-          onTap: () {
-            Provider.of<DataProvider>(context, listen: false)
-                .nameSelecter(widget.index);
-          },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView(
+            shrinkWrap: true,
+            primary: false,
+            padding: EdgeInsets.zero,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  right: 30,
-                  left: 20,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      _name.name,
-                      style: const TextStyle(
-                        fontSize: 24,
-                      ),
-                    ),
-                    Container(
-                      child: Center(
-                          child: Text(
-                        '${_name.id}',
-                        style: const TextStyle(color: Colors.white),
-                      )),
-                      width: 35,
-                      height: 35,
-                      decoration: BoxDecoration(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(20)),
-                          color: Theme.of(context).colorScheme.primary),
-                    ),
-                  ],
-                ),
-              ),
-              if (_name.open)
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.all(15),
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 5,
-                    ),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(12),
-                      ),
-                      color: Theme.of(context)
-                          .colorScheme
-                          .primary
-                          .withOpacity(0.1),
-                    ),
-                    child: Column(
-                      children: [
-                        Text(
-                          _name.meaning,
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
-                      ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    name.name,
+                    style: const TextStyle(
+                      fontSize: 24,
                     ),
                   ),
-                ),
-              InteractiveIcons(
-                clicked: _name.open,
-                name: _name.name,
-                meaning: _name.meaning,
-                favorite: _name.favorite,
-                shareIt: () => shareIt(_name),
+                  Container(
+                    width: 35,
+                    height: 35,
+                    decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(20)),
+                        color: Theme.of(context).colorScheme.primary),
+                    child: Center(
+                        child: Text(
+                      '${name.id}',
+                      style: const TextStyle(color: Colors.white),
+                    )),
+                  ),
+                ],
               ),
+              if (selected)
+                Container(
+                  padding: const EdgeInsets.all(15),
+                  margin: const EdgeInsets.symmetric(
+                    vertical: 16,
+                  ),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(12),
+                    ),
+                    color:
+                        Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        name.meaning,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                    ],
+                  ),
+                ),
+              if (selected)
+                InteractiveIcons(
+                  name: name.name,
+                  meaning: name.meaning,
+                  favorite: name.favorite,
+                  shareIt: () => shareIt(name),
+                ),
             ],
           ),
         ),
