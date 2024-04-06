@@ -71,7 +71,7 @@ class _NameCard extends State<NameCard> {
         right: 20,
         top: 10,
         // Extra bottom to ensure not the last name not hided by floating action button
-        bottom: name.id == widget.lastItem ? 75 : 10,
+        bottom: name.id == widget.lastItem ? 85 : 10,
       ),
       child: InkWell(
         borderRadius: const BorderRadius.all(Radius.circular(12)),
@@ -80,85 +80,89 @@ class _NameCard extends State<NameCard> {
             () => selected = !selected,
           );
         },
-        child: AnimatedContainer(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16.0,
-            vertical: 16.0,
-          ),
-          duration: Duration(milliseconds: selected ? 400 : 250),
-          constraints: const BoxConstraints(minHeight: 60, maxHeight: 5000),
-          width: double.infinity,
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+        child: AnimatedSize(
+          duration: const Duration(milliseconds: 400),
+          alignment: Alignment.topCenter,
+          child: Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 16.0,
             ),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(12),
-            ),
-            color: name.open
-                ? Theme.of(context).colorScheme.secondary
-                : Theme.of(context).colorScheme.secondary.withOpacity(0.95),
-          ),
-          child: ListView(
-            shrinkWrap: true,
-            primary: false,
-            padding: EdgeInsets.zero,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    name.name,
-                    style: const TextStyle(
-                      fontSize: 24,
-                    ),
-                  ),
-                  Container(
-                    width: 35,
-                    height: 35,
-                    decoration: BoxDecoration(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(20)),
-                        color: Theme.of(context).colorScheme.primary),
-                    child: Center(
-                        child: Text(
-                      '${name.id}',
-                      style: const TextStyle(color: Colors.white),
-                    )),
-                  ),
-                ],
+            width: double.infinity,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
               ),
-              if (selected)
-                Container(
-                  padding: const EdgeInsets.all(15),
-                  margin: const EdgeInsets.symmetric(
-                    vertical: 16,
-                  ),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(12),
-                    ),
-                    color:
-                        Theme.of(context).colorScheme.primary.withOpacity(0.1),
-                  ),
-                  child: Column(
-                    children: [
-                      Text(
-                        name.meaning,
-                        style: Theme.of(context).textTheme.bodyMedium,
+              borderRadius: const BorderRadius.all(
+                Radius.circular(12),
+              ),
+              color: name.open
+                  ? Theme.of(context).colorScheme.secondary
+                  : Theme.of(context).colorScheme.secondary.withOpacity(0.95),
+            ),
+            child: ListView(
+              shrinkWrap: true,
+              primary: false,
+              padding: EdgeInsets.zero,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      name.name,
+                      style: const TextStyle(
+                        fontSize: 24,
                       ),
-                    ],
+                    ),
+                    Container(
+                      width: 35,
+                      height: 35,
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(20)),
+                          color: Theme.of(context).colorScheme.primary),
+                      child: Center(
+                          child: Text(
+                        '${name.id}',
+                        style: const TextStyle(color: Colors.white),
+                      )),
+                    ),
+                  ],
+                ),
+                if (selected)
+                  Container(
+                    padding: const EdgeInsets.all(15),
+                    margin: const EdgeInsets.symmetric(
+                      vertical: 16,
+                    ),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(12),
+                      ),
+                      color: Theme.of(context)
+                          .colorScheme
+                          .primary
+                          .withOpacity(0.1),
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          name.meaning,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              if (selected)
-                InteractiveIcons(
-                  name: name.name,
-                  meaning: name.meaning,
-                  favorite: name.favorite,
-                  shareIt: () => shareIt(name),
-                ),
-            ],
+                if (selected)
+                  InteractiveIcons(
+                    name: name.name,
+                    meaning: name.meaning,
+                    favorite: name.favorite,
+                    shareIt: () => shareIt(name),
+                  ),
+              ],
+            ),
           ),
         ),
       ),
