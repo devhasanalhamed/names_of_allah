@@ -12,7 +12,6 @@ class DataProvider with ChangeNotifier {
       meaning: 'هو الله الإله المألوه المعبود بحق',
       search: 'الله',
       favorite: false,
-      open: false,
     ),
     Names(
       id: 2,
@@ -21,7 +20,6 @@ class DataProvider with ChangeNotifier {
           'الفرد، المتفرد بصفات الكمال، الذي لانظير له ولامثيل له في ذاته ولا في صفاته وأفعاله وألوهيته',
       search: 'الاحد الأحد',
       favorite: true,
-      open: false,
     ),
     Names(
       id: 3,
@@ -30,7 +28,6 @@ class DataProvider with ChangeNotifier {
           'الذي علا على كل شيء، فمهما تصور العبد عالياً فالله أعلى منه، فله العلو المطلق في ذاته وصفاته',
       search: 'الاعلى الأعلى',
       favorite: false,
-      open: false,
     ),
     Names(
       id: 4,
@@ -38,7 +35,6 @@ class DataProvider with ChangeNotifier {
       meaning: 'الذي لا يوازي كرمه كرم، ولا يعادله في كرمه كريم',
       search: 'الاكرم الأكرم',
       favorite: false,
-      open: false,
     ),
     Names(
       id: 5,
@@ -46,7 +42,6 @@ class DataProvider with ChangeNotifier {
       meaning: 'المألوه المعبود ، المستحق للألوهية والعبادة وحده',
       search: 'الاله الإله',
       favorite: false,
-      open: false,
     ),
     Names(
       id: 6,
@@ -54,7 +49,6 @@ class DataProvider with ChangeNotifier {
       meaning: 'الذي ليس لوجوده بداية، فكل ما سواه كائن بعد أن لم يكن .',
       search: 'الاول الأول',
       favorite: false,
-      open: false,
     ),
     Names(
       id: 7,
@@ -63,7 +57,6 @@ class DataProvider with ChangeNotifier {
           'الذي ليس لوجوده نهاية، بل له الخلود المطلق، والبقاء الدائم، لا يفنى ولا يبيد ',
       search: 'الاخر الآخر',
       favorite: false,
-      open: false,
     ),
     Names(
       id: 8,
@@ -72,23 +65,21 @@ class DataProvider with ChangeNotifier {
           'الذي استعلى على خلقه بذاته، واستعلى عليهم بحججه وآياته، وقهرهم بقوته وسلطانه ',
       search: 'الظاهر',
       favorite: true,
-      open: false,
     ),
     Names(
-        id: 9,
-        name: 'الباطن',
-        meaning:
-            ' المحتجب عن خلقه فلا يرى في الدنيا، وإنما يُعلم وجوده بدلائل خلقه وآثار صنعه.',
-        search: 'الباطن',
-        favorite: false,
-        open: false),
+      id: 9,
+      name: 'الباطن',
+      meaning:
+          ' المحتجب عن خلقه فلا يرى في الدنيا، وإنما يُعلم وجوده بدلائل خلقه وآثار صنعه.',
+      search: 'الباطن',
+      favorite: false,
+    ),
     Names(
       id: 10,
       name: 'البارئ ',
       meaning: 'وهو في معنى الخالق إلا أنه يدل على مطلق الخلق من غير تقدير .',
       search: 'البارئ الباري البارء',
       favorite: false,
-      open: false,
     ),
     Names(
       id: 11,
@@ -96,7 +87,6 @@ class DataProvider with ChangeNotifier {
       meaning: 'العطوف على عباده المحسن إليهم، الذي عم بره وإحسانه جميع خلقه',
       search: 'البر',
       favorite: false,
-      open: false,
     ),
     Names(
       id: 12,
@@ -104,7 +94,6 @@ class DataProvider with ChangeNotifier {
       meaning: 'الذي يرى المبصرات، لا يخفى عليه خافية في الأرض ولا في السماء',
       search: 'البصير',
       favorite: false,
-      open: false,
     ),
     Names(
       id: 13,
@@ -112,7 +101,6 @@ class DataProvider with ChangeNotifier {
       meaning: 'الذي يقبل توبة عباده، وكلما تكررت التوبة تكرر القبول',
       search: 'التواب',
       favorite: false,
-      open: false,
     ),
     Names(
       id: 14,
@@ -121,7 +109,6 @@ class DataProvider with ChangeNotifier {
           'مأخوذ من الجبر والقهر والتعالي فهو سبحانه: المستعلي المتعاظم الذي لا يخرج أحد عن أمره الكوني وسلطانه القدري، فهو الذي يحيي ويميت، ويرزق ويفقر، ويعز ويذل، ويفعل ما يشاء في خلقه لا راد لأمره، ولا ناقض لقضائه',
       search: 'الجبار',
       favorite: false,
-      open: false,
     ),
     Names(
       id: 15,
@@ -129,7 +116,6 @@ class DataProvider with ChangeNotifier {
       meaning: 'الصائن عبده عن أسباب الهلكة في أمور دينه ودنياه ',
       search: 'الحافظ',
       favorite: false,
-      open: false,
     ),
     Names(
       id: 16,
@@ -138,7 +124,6 @@ class DataProvider with ChangeNotifier {
           'أنه الشريف الذي فاق شرفه كل شرف، والعالم الذي يعلم مقادير الأشياء وأعدادها، والكافي الذي يحفظ ويرزق',
       search: 'الحسيب',
       favorite: false,
-      open: false,
     ),
     Names(
       id: 17,
@@ -147,7 +132,6 @@ class DataProvider with ChangeNotifier {
           'الحافظ، فهو الذي يحفظ السماء أن تقع على الأرض، ويحفظ الأرض أن تهوي، ويحفظ الكواكب أن تصطدم ببعضها، ويحفظ للحياة نظامها، ويحفظ على عباده ما عملوه من خير وشر وطاعة ومعصية',
       search: 'الحفيظ',
       favorite: false,
-      open: false,
     ),
     Names(
       id: 18,
@@ -156,7 +140,6 @@ class DataProvider with ChangeNotifier {
           'الذي يعود عبده على الإجابة إذا دعاه، فهو لطيف به سبحانه وتعالى، وفسره بعض أهل العلم فقالوا البر اللطيف بعباده',
       search: 'الحفي',
       favorite: false,
-      open: false,
     ),
     // Names(
     //   name: 'الحق',
@@ -714,15 +697,6 @@ class DataProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void nameSelector(int index) {
-    final oldState = _finalList[index].open;
-    for (var element in _finalList) {
-      element.open = false;
-    }
-    _finalList[index].open = !oldState;
-    notifyListeners();
-  }
-
   void addFavorite(String name) {
     final i = _namesOfAllah.indexWhere((element) => element.name == name);
     _namesOfAllah[i] = Names(
@@ -731,7 +705,6 @@ class DataProvider with ChangeNotifier {
       meaning: _namesOfAllah[i].meaning,
       search: _namesOfAllah[i].search,
       favorite: !_namesOfAllah[i].favorite,
-      open: true,
     );
     notifyListeners();
   }
