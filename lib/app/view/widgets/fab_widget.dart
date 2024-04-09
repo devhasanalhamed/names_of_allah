@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 const buttonSize = 60.0;
 
 class MyFABWidget extends StatefulWidget {
-  const MyFABWidget({Key? key}) : super(key: key);
+  const MyFABWidget({super.key});
 
   @override
   State<MyFABWidget> createState() => _MyFABWidgetState();
@@ -89,15 +89,15 @@ class _MyFABWidgetState extends State<MyFABWidget>
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           Text('أسماء الله الحُسنى'),
                         ],
                       ),
-                      Column(
+                      const Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
-                        children: const [
+                        children: [
                           Text('تم تطويره من قبل:',
                               textAlign: TextAlign.center,
                               textDirection: TextDirection.rtl),
@@ -154,7 +154,7 @@ class FlowMenuDelegate extends FlowDelegate {
         animationController.status == AnimationStatus.reverse ||
         animationController.status == AnimationStatus.completed) {
       for (int i = 0; i < n; i++) {
-        final x = xStart - buttonSize;
+        const x = xStart - buttonSize;
         final dx = (buttonSize + margin) * i;
         final y = yStart - dx * animationController.value;
         context.paintChild(
@@ -162,9 +162,8 @@ class FlowMenuDelegate extends FlowDelegate {
           transform: Matrix4.translationValues(x, y, 0),
         );
       }
-      ;
     } else {
-      final x = xStart - buttonSize;
+      const x = xStart - buttonSize;
       final y = yStart;
       context.paintChild(
         0,
