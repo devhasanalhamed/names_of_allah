@@ -3,13 +3,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:names_of_allah/app/controllers/dataProvider.dart';
 import 'package:names_of_allah/app/view/widgets/fab_widget.dart';
 import 'package:names_of_allah/core/controllers/theme_manager.dart';
-import 'package:names_of_allah/app/view/widgets/appbar.dart';
+import 'package:names_of_allah/app/view/widgets/app_bar.dart';
 import 'package:names_of_allah/app/view/widgets/list_of_names.dart';
 
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -18,14 +18,13 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
-    Provider.of<ThemeManager>(context, listen: false).getPrefs();
+    Provider.of<ThemeManager>(context, listen: false).getPref();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    final _names =
-        Provider.of<DataProvider>(context, listen: true).namesOfAllah;
+    final names = Provider.of<DataProvider>(context, listen: true).namesOfAllah;
     return Scaffold(
       floatingActionButton: const MyFABWidget(),
       backgroundColor: Theme.of(context).colorScheme.background,
@@ -42,7 +41,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Column(
             children: [
-              ListOfNames(_names),
+              ListOfNames(names),
             ],
           ),
         ],
