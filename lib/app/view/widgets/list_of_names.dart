@@ -20,7 +20,6 @@ class ListOfNames extends StatefulWidget {
 }
 
 class _ListOfNamesState extends State<ListOfNames> {
-  var clicked = false;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -49,7 +48,8 @@ class NameCard extends StatefulWidget {
 
 class _NameCard extends State<NameCard> {
   final ScreenshotController _screenshotController = ScreenshotController();
-  bool selected = false;
+  bool expanded = false;
+  bool showContent = false;
 
   void shareIt(Names name) async {
     Provider.of<DataProvider>(context, listen: false)
@@ -77,12 +77,15 @@ class _NameCard extends State<NameCard> {
         borderRadius: const BorderRadius.all(Radius.circular(12)),
         onTap: () {
           setState(
-            () => selected = !selected,
+            () => expanded = !expanded,
           );
         },
         child: AnimatedSize(
-          duration: Duration(milliseconds: selected ? 100 : 400),
+          duration: const Duration(milliseconds: 350),
           alignment: Alignment.topCenter,
+          reverseDuration: const Duration(milliseconds: 250),
+          curve: Curves.easeIn,
+          onEnd: () => showContent = !showContent,
           child: Container(
             padding: const EdgeInsets.symmetric(
               horizontal: 16.0,
@@ -96,9 +99,7 @@ class _NameCard extends State<NameCard> {
               borderRadius: const BorderRadius.all(
                 Radius.circular(12),
               ),
-              color: name.open
-                  ? Theme.of(context).colorScheme.secondary
-                  : Theme.of(context).colorScheme.secondary.withOpacity(0.95),
+              color: Theme.of(context).colorScheme.secondary.withOpacity(0.95),
             ),
             child: ListView(
               shrinkWrap: true,
@@ -129,7 +130,7 @@ class _NameCard extends State<NameCard> {
                     ),
                   ],
                 ),
-                if (selected)
+                if (expanded)
                   Container(
                     padding: const EdgeInsets.all(15),
                     margin: const EdgeInsets.symmetric(
@@ -154,7 +155,7 @@ class _NameCard extends State<NameCard> {
                       ],
                     ),
                   ),
-                if (selected)
+                if (expanded)
                   InteractiveIcons(
                     name: name.name,
                     meaning: name.meaning,
