@@ -1,4 +1,9 @@
 {
   "todo-tree.tree.showBadges": true,
-  "todo-tree.tree.scanMode": "workspace only"
+  "todo-tree.tree.scanMode": "workspace only",
+  "cSpell.language": "en,ar",
+  "cSpell.words": [
+    "البارء",
+    "المألوه"
+  ]
 }
