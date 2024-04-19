@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 class ShareWidget extends StatefulWidget {
   final String name;
   final String meaning;
-  const ShareWidget(this.name, this.meaning, {Key? key}) : super(key: key);
+  const ShareWidget(this.name, this.meaning, {super.key});
 
   @override
-  _ShareWidgetState createState() => _ShareWidgetState();
+  ShareWidgetState createState() => ShareWidgetState();
 }
 
-class _ShareWidgetState extends State<ShareWidget> {
+class ShareWidgetState extends State<ShareWidget> {
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -47,15 +47,15 @@ class _ShareWidgetState extends State<ShareWidget> {
                     ),
                   ),
                   Container(
-                    child: const Icon(
-                      Icons.favorite,
-                      color: Colors.white,
-                    ),
                     width: 35,
                     height: 35,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                       color: Color(0xFF289BAF),
+                    ),
+                    child: const Icon(
+                      Icons.favorite,
+                      color: Colors.white,
                     ),
                   ),
                 ],
@@ -78,7 +78,7 @@ class _ShareWidgetState extends State<ShareWidget> {
                   children: [
                     Text(
                       widget.meaning,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                       ),
                     ),
