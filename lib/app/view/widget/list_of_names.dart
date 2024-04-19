@@ -159,7 +159,7 @@ class _NameCard extends State<NameCard> {
                   InteractiveIcons(
                     name: name.name,
                     meaning: name.meaning,
-                    favorite: name.favorite,
+                    favorite: false,
                     shareIt: () => shareIt(name),
                   ),
               ],
