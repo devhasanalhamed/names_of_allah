@@ -11,7 +11,6 @@ class DataProvider with ChangeNotifier {
       name: 'الله',
       meaning: 'هو الله الإله المألوه المعبود بحق',
       search: 'الله',
-      favorite: false,
     ),
     NameModel(
       id: 2,
@@ -19,7 +18,6 @@ class DataProvider with ChangeNotifier {
       meaning:
           'الفرد، المتفرد بصفات الكمال، الذي لا نظير له ولا مثيل له في ذاته ولا في صفاته وأفعاله وألوهيته',
       search: 'الاحد الأحد',
-      favorite: true,
     ),
     NameModel(
       id: 3,
@@ -27,28 +25,24 @@ class DataProvider with ChangeNotifier {
       meaning:
           'الذي علا على كل شيء، فمهما تصور العبد عالياً فالله أعلى منه، فله العلو المطلق في ذاته وصفاته',
       search: 'الاعلى الأعلى',
-      favorite: false,
     ),
     NameModel(
       id: 4,
       name: 'الأكرم ',
       meaning: 'الذي لا يوازي كرمه كرم، ولا يعادله في كرمه كريم',
       search: 'الاكرم الأكرم',
-      favorite: false,
     ),
     NameModel(
       id: 5,
       name: 'الإله ',
       meaning: 'المألوه المعبود ، المستحق للألوهية والعبادة وحده',
       search: 'الاله الإله',
-      favorite: false,
     ),
     NameModel(
       id: 6,
       name: 'الأول',
       meaning: 'الذي ليس لوجوده بداية، فكل ما سواه كائن بعد أن لم يكن .',
       search: 'الاول الأول',
-      favorite: false,
     ),
     NameModel(
       id: 7,
@@ -56,7 +50,6 @@ class DataProvider with ChangeNotifier {
       meaning:
           'الذي ليس لوجوده نهاية، بل له الخلود المطلق، والبقاء الدائم، لا يفنى ولا يبيد ',
       search: 'الاخر الآخر',
-      favorite: false,
     ),
     NameModel(
       id: 8,
@@ -64,7 +57,6 @@ class DataProvider with ChangeNotifier {
       meaning:
           'الذي استعلى على خلقه بذاته، واستعلى عليهم بحججه وآياته، وقهرهم بقوته وسلطانه ',
       search: 'الظاهر',
-      favorite: true,
     ),
     NameModel(
       id: 9,
@@ -72,35 +64,30 @@ class DataProvider with ChangeNotifier {
       meaning:
           ' المحتجب عن خلقه فلا يرى في الدنيا، وإنما يُعلم وجوده بدلائل خلقه وآثار صنعه.',
       search: 'الباطن',
-      favorite: false,
     ),
     NameModel(
       id: 10,
       name: 'البارئ ',
       meaning: 'وهو في معنى الخالق إلا أنه يدل على مطلق الخلق من غير تقدير .',
       search: 'البارئ الباري البارء',
-      favorite: false,
     ),
     NameModel(
       id: 11,
       name: 'البر',
       meaning: 'العطوف على عباده المحسن إليهم، الذي عم بره وإحسانه جميع خلقه',
       search: 'البر',
-      favorite: false,
     ),
     NameModel(
       id: 12,
       name: 'البصير',
       meaning: 'الذي يرى المبصرات، لا يخفى عليه خافية في الأرض ولا في السماء',
       search: 'البصير',
-      favorite: false,
     ),
     NameModel(
       id: 13,
       name: 'التواب ',
       meaning: 'الذي يقبل توبة عباده، وكلما تكررت التوبة تكرر القبول',
       search: 'التواب',
-      favorite: false,
     ),
     NameModel(
       id: 14,
@@ -108,14 +95,12 @@ class DataProvider with ChangeNotifier {
       meaning:
           'مأخوذ من الجبر والقهر والتعالي فهو سبحانه: المستعلي المتعاظم الذي لا يخرج أحد عن أمره الكوني وسلطانه القدري، فهو الذي يحيي ويميت، ويرزق ويفقر، ويعز ويذل، ويفعل ما يشاء في خلقه لا راد لأمره، ولا ناقض لقضائه',
       search: 'الجبار',
-      favorite: false,
     ),
     NameModel(
       id: 15,
       name: 'الحافظ ',
       meaning: 'الصائن عبده عن أسباب الهلكة في أمور دينه ودنياه ',
       search: 'الحافظ',
-      favorite: false,
     ),
     NameModel(
       id: 16,
@@ -123,7 +108,6 @@ class DataProvider with ChangeNotifier {
       meaning:
           'أنه الشريف الذي فاق شرفه كل شرف، والعالم الذي يعلم مقادير الأشياء وأعدادها، والكافي الذي يحفظ ويرزق',
       search: 'الحسيب',
-      favorite: false,
     ),
     NameModel(
       id: 17,
@@ -131,7 +115,6 @@ class DataProvider with ChangeNotifier {
       meaning:
           'الحافظ، فهو الذي يحفظ السماء أن تقع على الأرض، ويحفظ الأرض أن تهوي، ويحفظ الكواكب أن تصطدم ببعضها، ويحفظ للحياة نظامها، ويحفظ على عباده ما عملوه من خير وشر وطاعة ومعصية',
       search: 'الحفيظ',
-      favorite: false,
     ),
     NameModel(
       id: 18,
@@ -139,7 +122,6 @@ class DataProvider with ChangeNotifier {
       meaning:
           'الذي يعود عبده على الإجابة إذا دعاه، فهو لطيف به سبحانه وتعالى، وفسره بعض أهل العلم فقالوا البر اللطيف بعباده',
       search: 'الحفي',
-      favorite: false,
     ),
     // Names(
     //   name: 'الحق',
@@ -689,8 +671,8 @@ class DataProvider with ChangeNotifier {
   void toggleFavoriteList() {
     toggleFavorite = !toggleFavorite;
     if (toggleFavorite) {
-      _finalList =
-          _namesOfAllah.where((element) => element.favorite == true).toList();
+      // _finalList =
+      //     _namesOfAllah.where((element) => element.favorite == true).toList();
     } else {
       returnOriginal();
     }
@@ -704,7 +686,6 @@ class DataProvider with ChangeNotifier {
       name: _namesOfAllah[i].name,
       meaning: _namesOfAllah[i].meaning,
       search: _namesOfAllah[i].search,
-      favorite: !_namesOfAllah[i].favorite,
     );
     notifyListeners();
   }
