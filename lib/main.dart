@@ -11,7 +11,9 @@ import 'core/theme/theme_data/dark_theme_data.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Preferences.init();
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
