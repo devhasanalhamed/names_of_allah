@@ -12,5 +12,6 @@ class Preferences {
 class Storage {
   void hive() async {
     final hive = Hive.init;
+    print(hive.toString());
   }
 }
