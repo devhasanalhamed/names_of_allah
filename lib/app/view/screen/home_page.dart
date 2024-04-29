@@ -19,14 +19,14 @@ class HomePage extends StatelessWidget {
       appBar: const MyAppBar(),
       body: Stack(
         children: [
-          Center(
-            child: SvgPicture.asset(
-              'assets/images/background.svg',
-              color: Theme.of(context).colorScheme.primary,
-              height: 400,
-              width: 400,
-            ),
-          ),
+          // Center(
+          //   child: SvgPicture.asset(
+          //     'assets/images/background.svg',
+          //     color: Theme.of(context).colorScheme.primary,
+          //     height: 400,
+          //     width: 400,
+          //   ),
+          // ),
           Column(
             children: [
               ListOfNames(names),
